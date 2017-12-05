@@ -32,6 +32,8 @@
 
 [14] ``IEEE CCIS2012`` ``Fuzz BMP`` Hou Y, Tao G, Shi Z, et al. Research on Android browser fuzzing based on bitmap structure[M]. 2013.
 
+[15] ``ACM 2017`` Guo R. MongoDB's JavaScript Fuzzer[M]. ACM, 2017.
+
 工具
 --------------------------------------------------
 
@@ -55,6 +57,8 @@
 
 [10] ``w3c`` `web platform tests <https://github.com/w3c/web-platform-tests>`_
 
+[11] `oss fuzz <https://github.com/google/oss-fuzz>`_
+
 Blog
 --------------------------------------------------
 
@@ -71,3 +75,5 @@ Blog
 [6] `符号执行入门 <https://zhuanlan.zhihu.com/p/26927127>`_
 
 [7] `blueclosure <http://blog.blueclosure.com/>`_
+
+[8] `MongoDBs fuzzer <https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos>`_
