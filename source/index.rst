@@ -6,6 +6,7 @@
    :maxdepth: 2
    :caption: Contents:
 
+   intro
    vultype
    fuzz
    fuzz-paper
