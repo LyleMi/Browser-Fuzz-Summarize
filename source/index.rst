@@ -11,5 +11,6 @@
    fuzz
    fuzz-paper
    tool
+   mitigation
    grinder
    ref
