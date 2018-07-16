@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Fuzz实现 &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Grinder" href="grinder.html" />
+    <link rel="prev" title="5. Fuzz相关论文" href="fuzz-paper.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> browser_fuzz_summarize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. 浏览器内核简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mitigation.html">2. 浏览器防护措施</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vultype.html">3. 浏览器漏洞类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzz.html">4. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzz-paper.html">5. Fuzz相关论文</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Fuzz实现</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">6.1. 综述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.1.1. 按功能分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.1.2. 按攻击面分类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.1.3. 运行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6.2. 随机样本的生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.3. 样本保存</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">6.3.1. 记录随机数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.3.2. 记录随机样本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket">6.3.3. WebSocket通信</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">6.4. 其他样本生成方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">6.5. 浏览器进程监控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">6.6. 浏览器fuzz缺点</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grinder.html">7. Grinder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref.html">8. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">browser_fuzz_summarize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6. Fuzz实现</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tool.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fuzz">
+<h1>6. Fuzz实现<a class="headerlink" href="#fuzz" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>6.1. 综述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>6.1.1. 按功能分类<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>总的来说，浏览器Fuzz框架要实现的主要功能是随机样本的生成、浏览器进程监控、Crash样本保存三件事情。而各个框架则在完成基本功能的基础上增加了分布式调度、自定义fuzz策略、样本精简、分析crash等特性。</p>
+<p>如果要分类的话，浏览器fuzz工具大概可以分为框架类、策略类以及综合类。策略类工具制定了一系列新建、修改、删除DOM元素的规则。通过生成随机样本的方式，产生不同的样本来测试浏览器是否产生异常。而框架类工具则是提供了启动并监控浏览器进程、打开或记录异常样本等功能，将策略类工具承载起来的Fuzzing平台。</p>
+<p>框架类比较有代表性的是BFuzzer、grinder、cross_fuzz、x-fuzzer等，这类工具提供了fuzz的基本功能，但是没有涉及样本生成的策略。而策略类工具中比较有代表性的是nduja和fileja[3-5]，这两个工具是由Valotta完成的浏览器fuzz样本生成脚本，有着比较丰富的生成规则，但是并没有实现自动化的测试等功能。综合类则综合了两类的特点，完成了两种功能，比较有代表性的是clusterfuzz、funfuzz、chromefuzzer、ajaxdemolisher、lithium等。</p>
+<p>这些工具基本都通过javascript脚本进行fuzz操作，同时通过hook函数、localStorage本地存储等技术手段动态记录fuzz操作日志，捕获到异常后再根据记录日志进行还原。</p>
+</div>
+<div class="section" id="id3">
+<h3>6.1.2. 按攻击面分类<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>另外一种分类的思路是按攻击面分类，常见的fuzzer都是针对DOM进行fuzz，但是也有一些fuzz工具专注于其他的攻击面。比如针对ActiveX进行fuzz的axman，另外也有一些针对JavaScript脚本[2-8]、CSS、图片[1-11][1-14]、PDF、SVG、Flash、浏览器扩展、插件等进行fuzz的工具。</p>
+</div>
+<div class="section" id="id4">
+<h3>6.1.3. 运行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>一般运行一个测试样例的思路为，生成样本，发送至服务器端，浏览器访问服务器端获取样本，加载并执行样本。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>6.2. 随机样本的生成<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>随机样本生成的好坏，直接决定了该工具能否挖掘出有价值的漏洞。目前纯Fuzz方法中，比较流行的就是根据目标文件格式生成针对性样本，效果也比较理想。以HTML文档为例，诞生过很多随机生成html/DOM元素的Browser Fuzzer。
+曾经盛名一时的nduja，其大致思路就是，利用Javascript随机创建DOM元素、随机调用DOM处理函数、随机删除DOM元素等操作来完成每一次Fuzz的。</p>
+</div>
+<div class="section" id="id6">
+<h2>6.3. 样本保存<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>6.3.1. 记录随机数<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>结合之前提到的创建DOM元素的方式，一种思路是将本次rand函数生成的所有随机数全部保存下来即可。Grinder框架就是基于这种思路，采用DLL注入的方式，劫持了Javascript的parseFloat函数，用以记录某次样本需要记录的相关参数。</p>
+<p>但是这样有几个缺点，一个是浏览器最新版本一般不提供symbols文件或发布symbols文件比较慢，这无疑限制了Grinder对最新浏览器的测试能力。另外一个是有时候可能是多个html共同导致了某个Crash，但是Grinder的日志只记录了一个html中的log信息，可能无法重现该类漏洞。</p>
+</div>
+<div class="section" id="id8">
+<h3>6.3.2. 记录随机样本<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>既然记录随机值的方式存在一定的问题，那么就有了另一个思路，直接将模版中的随机元素生成后进行保存，然后浏览器再访问。这样就简化了从日志中恢复样本的流程，而且更为准确。</p>
+</div>
+<div class="section" id="websocket">
+<h3>6.3.3. WebSocket通信<a class="headerlink" href="#websocket" title="Permalink to this headline">¶</a></h3>
+<p>另一个方法是利用websocket，实时的把相关信息发送到服务器，在服务器端进行保存。但是这样也有一个缺点，运行的websocket相关脚本可能也会影响浏览器样本的fuzz情况。</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>6.4. 其他样本生成方式<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>另外一种方式是根据已有的HTML样本进行变换之后生成。
+样本可以来源于之前的0day，从网上获取的一些样本。
+样本构造尽可能多的覆盖html的属性，比如css/javascript等</p>
+</div>
+<div class="section" id="id10">
+<h2>6.5. 浏览器进程监控<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>在对浏览器的异常检测上，通常有Pydbg和Windbg等方式，这些方式都各有优劣。但pydbg对python3和x64系统软件支持都不是特别好，另外windbg具有很吸引人的!exploitable插件[2-7]，虽然某些时候给出的结论并不准确，但不失为一种对漏洞可利用性做出预判的方法。</p>
+<p>另一个方法是，在Windows下某个进程崩溃时，通常会弹出WerFault.exe异常提示,可以根据进程列表中有无WerFault.exe作为监控浏览器是否发生Crash的依据。另外，将Windbg的命令行版cdb.exe设置为默认即时调试器。当发生crash时自动调用该调试器，并做下记录，也是一个可行的方法。</p>
+</div>
+<div class="section" id="id11">
+<h2>6.6. 浏览器fuzz缺点<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>很多浏览器fuzz工具每运行一个测试用例都会重启待测浏览器进程，因为浏览器重启在运行一个测试用例过程中耗时占比较大，进而导致fuzz效率不高。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="grinder.html" class="btn btn-neutral float-right" title="7. Grinder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fuzz-paper.html" class="btn btn-neutral" title="5. Fuzz相关论文" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, lyle.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
