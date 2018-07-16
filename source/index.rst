@@ -7,10 +7,10 @@
    :caption: Contents:
 
    intro
+   mitigation
    vultype
    fuzz
    fuzz-paper
    tool
-   mitigation
    grinder
    ref
