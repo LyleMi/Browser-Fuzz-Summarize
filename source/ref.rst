@@ -77,3 +77,5 @@ Blog
 [7] `blueclosure <http://blog.blueclosure.com/>`_
 
 [8] `MongoDBs fuzzer <https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos>`_
+
+[9] `JavaScript engine fundamentals optimizing prototypes <https://mathiasbynens.be/notes/prototypes>`_
