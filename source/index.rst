@@ -6,7 +6,7 @@
    :maxdepth: 2
    :caption: Contents:
 
-   intro
+   intro/index
    mitigation
    vultype
    fuzz
