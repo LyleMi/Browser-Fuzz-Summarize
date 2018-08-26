@@ -7,3 +7,4 @@
 
    kernel
    js
+   webkit

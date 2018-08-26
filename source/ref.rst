@@ -79,6 +79,10 @@ Blog
 
 9. `JavaScript engine fundamentals optimizing prototypes <https://mathiasbynens.be/notes/prototypes>`_
 
+10. ` 深入理解Webkit <http://www.starming.com/2017/10/11/deeply-analyse-webkit/>`_
+
+11. `Timeline of Web Browsers <https://en.wikipedia.org/wiki/Timeline_of_web_browsers>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
