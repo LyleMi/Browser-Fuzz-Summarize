@@ -83,6 +83,8 @@ Blog
 
 11. `Timeline of Web Browsers <https://en.wikipedia.org/wiki/Timeline_of_web_browsers>`_
 
+12. `Browser UI Security <https://xlab.tencent.com/cn/2017/10/16/browser-ui-security-whitepaper/>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -92,3 +94,5 @@ Blog
 3. `cve-2016-0189 <https://github.com/theori-io/cve-2016-0189>`_
 
 4. `CVE-2018-4121 Safari Wasm Exploit <https://github.com/mwrlabs/CVE-2018-4121>`_
+
+5. `Enforcement of Bounds Checks in Native JIT Code <https://www.zerodayinitiative.com/blog/2017/10/5/check-it-out-enforcement-of-bounds-checks-in-native-jit-code>`_
