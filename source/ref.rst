@@ -85,6 +85,8 @@ Blog
 
 12. `Browser UI Security <https://xlab.tencent.com/cn/2017/10/16/browser-ui-security-whitepaper/>`_
 
+13. `life of a pixel <http://bit.ly/lifeofapixel>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -96,3 +98,7 @@ Blog
 4. `CVE-2018-4121 Safari Wasm Exploit <https://github.com/mwrlabs/CVE-2018-4121>`_
 
 5. `Enforcement of Bounds Checks in Native JIT Code <https://www.zerodayinitiative.com/blog/2017/10/5/check-it-out-enforcement-of-bounds-checks-in-native-jit-code>`_
+
+6. `The Advanced Exploitation of 64-bit Edge Browser Use-After-Free Vulnerability on Windows 10 <https://github.com/mrowensnobody/presentation/blob/master/The%20Advanced%20Exploitation%20of%2064-bit%20Edge%20Browser%20Use-After-Free%20Vulnerability%20on%20Windows%2010.pdf>`_
+
+7. `From Assembly to JavaScript and Back <https://gsec.hitb.org/materials/sg2018/D1%20-%20Turning%20Memory%20Errors%20into%20Code%20Execution%20with%20Client-Side%20Compilers%20-%20Robert%20Gawlik.pdf>`_
