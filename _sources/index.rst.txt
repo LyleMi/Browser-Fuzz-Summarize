@@ -6,11 +6,11 @@
    :maxdepth: 2
    :caption: Contents:
 
-   intro
+   intro/index
+   papers/index
    mitigation
    vultype
    fuzz
-   fuzz-paper
    tool
    grinder
    ref
