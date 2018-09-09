@@ -10,6 +10,7 @@
    fileja
    gramfuzz
    mongo
+   notallbytes
    predicting
    scheduled
    skyfire
