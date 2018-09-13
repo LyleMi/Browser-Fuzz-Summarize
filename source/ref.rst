@@ -59,7 +59,7 @@
 
 11. `oss fuzz <https://github.com/google/oss-fuzz>`_
 
-Blog
+Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
 
@@ -87,6 +87,8 @@ Blog
 
 13. `life of a pixel <http://bit.ly/lifeofapixel>`_
 
+14. `Inline Caching in JavaScriptCore <http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -102,3 +104,7 @@ Blog
 6. `The Advanced Exploitation of 64-bit Edge Browser Use-After-Free Vulnerability on Windows 10 <https://github.com/mrowensnobody/presentation/blob/master/The%20Advanced%20Exploitation%20of%2064-bit%20Edge%20Browser%20Use-After-Free%20Vulnerability%20on%20Windows%2010.pdf>`_
 
 7. `From Assembly to JavaScript and Back <https://gsec.hitb.org/materials/sg2018/D1%20-%20Turning%20Memory%20Errors%20into%20Code%20Execution%20with%20Client-Side%20Compilers%20-%20Robert%20Gawlik.pdf>`_
+
+8. `awesome browser exploit <https://github.com/Escapingbug/awesome-browser-exploit>`_
+
+9. `pwnjs <https://github.com/theori-io/pwnjs>`_
