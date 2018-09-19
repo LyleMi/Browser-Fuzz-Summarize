@@ -89,6 +89,8 @@ Blog or Talks
 
 14. `Inline Caching in JavaScriptCore <http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf>`_
 
+15. `webidl <https://heycam.github.io/webidl/>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_

@@ -9,3 +9,14 @@ JavaScript Core
 --------------------------------
 JavaScript Core的优化执行分为四个部分，LLInt、Baseline、DFG、FTL。
 LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开始做一定的优化，FTL阶段做了充分的优化。
+
+编译
+--------------------------------
+
+::
+
+    git clone --depth=1 https://git.webkit.org/WebKit.git
+    cd WebKit
+    echo Y | ./Tools/gtk/install-dependencies
+    ./Tools/Scripts/update-webkitgtk-libs
+    ./Tools/Scripts/build-webkit --release --gtk --cmakeargs=-DCMAKE_CXX_FLAGS="-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"

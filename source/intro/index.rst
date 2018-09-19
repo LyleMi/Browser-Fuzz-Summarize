@@ -8,3 +8,4 @@
    kernel
    js
    webkit
+   webidl
