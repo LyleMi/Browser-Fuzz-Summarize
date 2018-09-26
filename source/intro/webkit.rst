@@ -15,7 +15,7 @@ LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开�
 
 ::
 
-    git clone --depth=1 https://git.webkit.org/WebKit.git
+    git clone --depth=1 git://git.webkit.org/WebKit.git
     cd WebKit
     echo Y | ./Tools/gtk/install-dependencies
     ./Tools/Scripts/update-webkitgtk-libs

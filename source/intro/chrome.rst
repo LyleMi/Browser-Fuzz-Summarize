@@ -56,9 +56,22 @@ Chrome用了blink，一个开源的layout engine来解析HTML的layout。
 
 这有助于我们在低内存情况下获得更优化的内存占用。与很少使用的背景选项卡相关联的内存可以完全交换出来，而前景选项卡的数据可以完全加载到内存中。相比之下，单进程浏览器将使所有选项卡的数据随机分布在其内存中，并且不可能如此干净地分离已使用和未使用的数据，从而浪费内存和性能。
 
+编译
+--------------------------------------------------
+::
+
+    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+    export PATH="$PATH:/path/to/depot_tools"
+    mkdir ~/chromium && cd ~/chromium
+    fetch --nohooks chromium
+    cd src
+    ./build/install-build-deps.sh
+    gclient runhooks
+    gn gen out/Default
 
 参考链接
 --------------------------------------------------
+- `chromium documents <https://chromium.googlesource.com/chromium/src/+/master/docs/>`_
 - `chromium design documents <https://www.chromium.org/developers/design-documents>`_
 - `V8 Ignition online doc <https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t>`_
 - `digging into turbofan jit <https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html>`_
