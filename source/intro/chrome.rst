@@ -69,6 +69,17 @@ Chrome用了blink，一个开源的layout engine来解析HTML的layout。
     gclient runhooks
     gn gen out/Default
 
+常用命令
+--------------------------------------------------
+- ``chrome://about`` 查看所有命令
+- ``chrome://crashes`` 主动Crash
+- ``chrome://version`` 查看版本
+- ``chrome://flags`` 查看或关闭chrome的特性
+- ``chrome://dns`` DNS状态
+- ``chrome://net-internals`` 网络相关信息
+- ``chrome://quota-internals`` 磁盘相关信息
+
+
 参考链接
 --------------------------------------------------
 - `chromium documents <https://chromium.googlesource.com/chromium/src/+/master/docs/>`_
