@@ -59,6 +59,8 @@
 
 11. `oss fuzz <https://github.com/google/oss-fuzz>`_
 
+12 `Domato <https://github.com/googleprojectzero/domato>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
@@ -90,6 +92,10 @@ Blog or Talks
 14. `Inline Caching in JavaScriptCore <http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf>`_
 
 15. `webidl <https://heycam.github.io/webidl/>`_
+
+16. `The Great DOM Fuzz-off of 2017 <https://googleprojectzero.blogspot.com/2017/09/the-great-dom-fuzz-off-of-2017.html>`_
+
+17. `Finding and Exploiting Safari Bugs using Publicly Available Tools <https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html>`_
 
 漏洞相关
 --------------------------------------------------

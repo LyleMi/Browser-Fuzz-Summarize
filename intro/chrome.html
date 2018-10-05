@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3. Chrome &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.4. ChakraCore" href="chakra.html" />
+    <link rel="prev" title="1.2. JavaScript引擎" href="js.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> browser_fuzz_summarize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. 基础知识</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kernel.html">1.1. 浏览器内核简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js.html">1.2. JavaScript引擎</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.3. Chrome</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#javascript">1.3.1. JavaScript引擎</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ipc">1.3.2. 渲染与IPC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1.3.2.1. 渲染进程管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1.3.2.2. 视图管理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1.3.2.3. 模块和接口</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">1.3.2.4. 共享渲染过程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crash">1.3.2.5. 检测渲染器的Crash或者错误行为</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">1.3.2.6. 沙盒渲染器</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">1.3.2.7. 内存优化</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.3.3. 编译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">1.3.4. 常用命令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.3.5. 参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chakra.html">1.4. ChakraCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webkit.html">1.5. Webkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webidl.html">1.6. WebIDL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">2. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mitigation.html">3. 浏览器防护措施</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vultype.html">4. 浏览器漏洞类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">5. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tool.html">6. Fuzz实现</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../grinder.html">7. Grinder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref.html">8. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">browser_fuzz_summarize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. 基础知识</a> &raquo;</li>
+        
+      <li>1.3. Chrome</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/intro/chrome.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chrome">
+<h1>1.3. Chrome<a class="headerlink" href="#chrome" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="javascript">
+<h2>1.3.1. JavaScript引擎<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<p>V8是Chrome的JavaScript语言处理程序（VM）。其引擎由TurboFan、Ignition和Liftoff组成。其中Turbofan是其优化编译器，Ignition则是其解释器，Liftoff是WebAssembly的代码生成器。</p>
+</div>
+<div class="section" id="ipc">
+<h2>1.3.2. 渲染与IPC<a class="headerlink" href="#ipc" title="Permalink to this headline">¶</a></h2>
+<p>在Chrome中，把进程分隔开来，来保护整个进程不受渲染引擎的一些bug干扰。也限制了渲染引擎对整个系统的访问。总的来说，做了内存保护和访问控制的工作。
+Chrome用了blink，一个开源的layout engine来解析HTML的layout。</p>
+<p><img alt="framework" src="../_images/chrome-frame.png" /></p>
+<div class="section" id="id1">
+<h3>1.3.2.1. 渲染进程管理<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>每个渲染进程都有一个对应的全局RenderProcess对象管理和浏览器进程之间的通信，并保存一些全局状态。浏览器也相应的保存了一个RenderProcessHost来管理浏览状态并与渲染进程通信。他们之间通信使用了Chromium的IPC system。</p>
+</div>
+<div class="section" id="id2">
+<h3>1.3.2.2. 视图管理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>每一个渲染进程都有由RenderProcess管理的和浏览器的标签页对应的一个或多个RenderView对象。相应的RenderProcessHost都有一个RenderViewHost和正在渲染的view相对应。
+每个view都有一个ID，用来唯一标识。ID在渲染进程中是唯一的，但是在浏览器中是不唯一，所以确定一个view需要view ID和RenderProcessHost。
+浏览器和特定标签页之间的通信是通过RenderViewHost对象完成的，RenderViewHost知道如何通过RenderProcessHost传递信息给RenderProcess和RenderView</p>
+</div>
+<div class="section" id="id3">
+<h3>1.3.2.3. 模块和接口<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>在渲染进程中:
++ RenderProcess保持着和相应RenderProcessHost之间的IPC通信。每一个渲染进程都有一个RenderProcess对象。这是浏览器和渲染模块通信的细节。
++ RenderView和RenderViewHost、webkit的嵌入层通信。这个对象表示选项卡或弹出窗口中的一个网页的内容</p>
+<p>在浏览器进程中:
++ Browser对象代表了最高level的浏览器窗口
++ RenderProcessHost对象表示浏览器端的单个浏览器&lt;–&gt;渲染器的IPC连接。 在每个渲染过程的浏览器进程中有一个RenderProcessHost。
++ RenderViewHost对象封装了与远程RenderView的通信，RenderWidgetHost在浏览器中处理RenderWidget的输入和渲染</p>
+</div>
+<div class="section" id="id4">
+<h3>1.3.2.4. 共享渲染过程<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>通常，每个新的窗口或选项卡都会在一个新的过程中打开。浏览器将产生一个新的进程，并指示它创建一个单独的RenderView。</p>
+<p>有时需要或希望在标签页或窗口之间共享渲染过程。一个Web应用程序打开一个新的窗口，它期望同步进行通信，例如在JavaScript中使用window.open。在这种情况下，当我们创建一个新的窗口或选项卡时，我们需要重新使用窗口打开的进程。如果进程总数太大，或者用户已经有进程打开导航到该域，那么我们还有策略将新的选项卡分配给现有进程。这些策略在过程模型中有所描述。</p>
+</div>
+<div class="section" id="crash">
+<h3>1.3.2.5. 检测渲染器的Crash或者错误行为<a class="headerlink" href="#crash" title="Permalink to this headline">¶</a></h3>
+<p>每个IPC连接到一个浏览器进程监视进程句柄。如果这些句柄发出信号，则渲染过程已经崩溃，并且通知了标签页。现在，我们显示一个“sad tab”屏幕，通知用户渲染器已经崩溃。可以通过按重新加载按钮或启动新的导航来重新加载页面。当这种情况发生时，我们注意到没有进程并创建一个新进程。</p>
+</div>
+<div class="section" id="id5">
+<h3>1.3.2.6. 沙盒渲染器<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>鉴于渲染器在单独的进程中运行，我们有机会通过沙箱限制其对系统资源的访问。例如，我们可以确保渲染器对网络的唯一访问是通过其父浏览器进程。同样，我们可以使用操作系统的内置权限来限制对文件系统的访问。</p>
+<p>除了限制渲染器访问文件系统和网络之外，我们还可以对其访问用户的显示和相关对象设置限制。我们在单独的Windows“桌面”上运行每个渲染过程，该用户不可见。这样可以防止受影响的渲染器打开新窗口或捕获击键。</p>
+</div>
+<div class="section" id="id6">
+<h3>1.3.2.7. 内存优化<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>给定的渲染器在单独的进程中运行，将隐藏的选项卡视为较低优先级变得很简单。通常，Windows上的最小化进程将其内存自动放入“可用内存”池中。在内存不足的情况下，Windows会将内存交换到磁盘，然后才能更换优先级的内存，从而有助于保持用户可见程序的响应。我们可以将这个相同的原则应用于隐藏的标签当渲染过程没有顶级选项卡时，我们可以释放该进程的“工作集”大小作为系统的提示，以便在必要时将该内存交换到磁盘。因为我们发现，当用户在两个选项卡之间切换时，减小工作集大小也会降低标签切换性能，我们逐渐释放此内存。这意味着如果用户切换回最近使用的选项卡，则该选项卡的内存比较少使用的选项卡更有可能被分页。具有足够内存来运行所有程序的用户根本不会注意到这个过程：Windows只有在需要时才会实际收回这样的数据，所以当内存充足时，没有任何性能下降。</p>
+<p>这有助于我们在低内存情况下获得更优化的内存占用。与很少使用的背景选项卡相关联的内存可以完全交换出来，而前景选项卡的数据可以完全加载到内存中。相比之下，单进程浏览器将使所有选项卡的数据随机分布在其内存中，并且不可能如此干净地分离已使用和未使用的数据，从而浪费内存和性能。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>1.3.3. 编译<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">chromium</span><span class="o">.</span><span class="n">googlesource</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">chromium</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">depot_tools</span><span class="o">.</span><span class="n">git</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:/path/to/depot_tools&quot;</span>
+<span class="n">mkdir</span> <span class="o">~/</span><span class="n">chromium</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="o">~/</span><span class="n">chromium</span>
+<span class="n">fetch</span> <span class="o">--</span><span class="n">nohooks</span> <span class="n">chromium</span>
+<span class="n">cd</span> <span class="n">src</span>
+<span class="o">./</span><span class="n">build</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">deps</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">gclient</span> <span class="n">runhooks</span>
+<span class="n">gn</span> <span class="n">gen</span> <span class="n">out</span><span class="o">/</span><span class="n">Default</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>1.3.4. 常用命令<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">chrome://about</span></code> 查看所有命令</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://crashes</span></code> 主动Crash</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://version</span></code> 查看版本</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://flags</span></code> 查看或关闭chrome的特性</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://dns</span></code> DNS状态</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://net-internals</span></code> 网络相关信息</li>
+<li><code class="docutils literal notranslate"><span class="pre">chrome://quota-internals</span></code> 磁盘相关信息</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>1.3.5. 参考链接<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://chromium.googlesource.com/chromium/src/+/master/docs/">chromium documents</a></li>
+<li><a class="reference external" href="https://www.chromium.org/developers/design-documents">chromium design documents</a></li>
+<li><a class="reference external" href="https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t">V8 Ignition online doc</a></li>
+<li><a class="reference external" href="https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html">digging into turbofan jit</a></li>
+<li><a class="reference external" href="https://v8project.blogspot.com/2018/08/liftoff.html">liftoff</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="chakra.html" class="btn btn-neutral float-right" title="1.4. ChakraCore" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="js.html" class="btn btn-neutral" title="1.2. JavaScript引擎" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, lyle.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

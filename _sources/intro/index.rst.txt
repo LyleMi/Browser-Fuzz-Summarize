@@ -7,6 +7,7 @@
 
    kernel
    js
+   chrome
    chakra
    webkit
    webidl
