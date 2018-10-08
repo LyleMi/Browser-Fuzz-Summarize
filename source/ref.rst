@@ -97,6 +97,8 @@ Blog or Talks
 
 17. `Finding and Exploiting Safari Bugs using Publicly Available Tools <https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html>`_
 
+18 `wabt <https://github.com/WebAssembly/wabt>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_

@@ -11,3 +11,4 @@
    chakra
    webkit
    webidl
+   wasm
