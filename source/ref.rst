@@ -99,6 +99,8 @@ Blog or Talks
 
 18 `wabt <https://github.com/WebAssembly/wabt>`_
 
+19. `ecma262 <https://github.com/tc39/ecma262>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -118,3 +120,5 @@ Blog or Talks
 8. `awesome browser exploit <https://github.com/Escapingbug/awesome-browser-exploit>`_
 
 9. `pwnjs <https://github.com/theori-io/pwnjs>`_
+
+10. `Write-up for CVE-2018-8495 <https://leucosite.com/Microsoft-Edge-RCE/>`_
