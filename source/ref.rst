@@ -59,7 +59,11 @@
 
 11. `oss fuzz <https://github.com/google/oss-fuzz>`_
 
-12 `Domato <https://github.com/googleprojectzero/domato>`_
+12. `Domato <https://github.com/googleprojectzero/domato>`_
+
+13. `mitigationview <https://github.com/fishstiqz/mitigationview>`_
+
+14. `sandbox attacksurface analysis tools <https://github.com/google/sandbox-attacksurface-analysis-tools>`_
 
 Blog or Talks
 --------------------------------------------------
