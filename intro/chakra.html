@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.4. ChakraCore &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>1.6. ChakraCore &mdash; browser_fuzz_summarize 1.0 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.5. Webkit" href="webkit.html" />
-    <link rel="prev" title="1.3. Chrome" href="chrome.html" /> 
+    <link rel="next" title="1.7. WebIDL" href="webidl.html" />
+    <link rel="prev" title="1.5. Edge" href="edge.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,16 +89,18 @@
 <li class="toctree-l2"><a class="reference internal" href="kernel.html">1.1. 浏览器内核简介</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html">1.2. JavaScript引擎</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chrome.html">1.3. Chrome</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.4. ChakraCore</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">1.4.1. 简介</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">1.4.2. 执行流程</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#jit">1.4.3. JIT编译器</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">1.4.4. 垃圾回收</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">1.4.5. 代码结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webkit.html">1.4. Webkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edge.html">1.5. Edge</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.6. ChakraCore</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.6.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.6.2. 执行流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jit">1.6.3. JIT编译器</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.6.4. 垃圾回收</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.6.5. 代码结构</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="webkit.html">1.5. Webkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="webidl.html">1.6. WebIDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webidl.html">1.7. WebIDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wasm.html">1.8. WebAssembly</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../papers/index.html">2. 相关论文</a></li>
@@ -155,7 +157,7 @@
         
           <li><a href="index.html">1. 基础知识</a> &raquo;</li>
         
-      <li>1.4. ChakraCore</li>
+      <li>1.6. ChakraCore</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,9 +177,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="chakracore">
-<h1>1.4. ChakraCore<a class="headerlink" href="#chakracore" title="Permalink to this headline">¶</a></h1>
+<h1>1.6. ChakraCore<a class="headerlink" href="#chakracore" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>1.4.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore是一个完整的JavaScript虚拟机，它拥有着和Chakra几乎相同的功能与特性。但在它们之间有两个不同点：</p>
 <ul class="simple">
 <li>ChakraCore没有公开Chakra与浏览器/UWP之间的私有绑定部分</li>
@@ -186,7 +188,7 @@
 <p><img alt="framework" src="../_images/framework.png" /></p>
 </div>
 <div class="section" id="id2">
-<h2>1.4.2. 执行流程<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.2. 执行流程<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore支持一种多级架构，包括：</p>
 <ul class="simple">
 <li>(1)用来快速启动的解释器</li>
@@ -202,7 +204,7 @@
 <p><img alt="pipeline" src="../_images/pipeline.png" /></p>
 </div>
 <div class="section" id="jit">
-<h2>1.4.3. JIT编译器<a class="headerlink" href="#jit" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.3. JIT编译器<a class="headerlink" href="#jit" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore拥有两级JIT编译器。在同一个后台线程中，ChakraCore有一个完全JIT编译器(Full JIT Compiler)用来产生高度优化的代码；还有一个简单JIT编译器(Simple JIT Compiler)，这是一个有较少优化版本的完全JIT编译器。</p>
 <p>在执行时，ChkaraCore首先将解释执行的函数换入简单JIT编译器，然后才是完全JIT编译。</p>
 <p>在大多数情况下，简单JIT编译耗时少于完全JIT编译，所以相比单级JIT，这种架构有助于更快启动app。</p>
@@ -210,12 +212,12 @@
 <p>无论何时，只要有潜在的未被利用的硬件资源，ChakraCore也可为后台JIT编译器产生多个并行线程。存在多个后台JIT编译线程时，ChakraCore的简单JIT编译和完全JIT编译的工作都会被分摊到多个编译线程上进行跨线程编译。这有助于在总体上减少JIT编译延迟。</p>
 </div>
 <div class="section" id="id3">
-<h2>1.4.4. 垃圾回收<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.4. 垃圾回收<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore拥有一个分代式标记清扫垃圾回收器，它支持并行、部分回收。当完全并行GC被初始化，ChakraCore的后台GC会进行一个初始标记阶段，然后重新扫描(rescan)来找出在这个初始标记阶段被主线程修改的对象，随后再运行第二个标记阶段来标记重新扫描时被修改的对象。当第二个标记阶段扫描结束后，主线程暂停执行并启动最终的重新扫描(final rescan)，之后最终的标记阶段(final marking pass)会被分解到主线程和已经在执行的GC线程。最后清扫阶段由后台GC线程完成，并且将无法到达的(unreachable)的对象重新加入分配池。</p>
 <p><img alt="gc" src="../_images/gc.png" /></p>
 </div>
 <div class="section" id="id4">
-<h2>1.4.5. 代码结构<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.5. 代码结构<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
 ├─bin                      生成可执行文件的工程，比如ChakraCore.dll
 ├─Build                    各个平台下的makefile或项目工程
@@ -264,10 +266,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="webkit.html" class="btn btn-neutral float-right" title="1.5. Webkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="webidl.html" class="btn btn-neutral float-right" title="1.7. WebIDL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="chrome.html" class="btn btn-neutral" title="1.3. Chrome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="edge.html" class="btn btn-neutral" title="1.5. Edge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

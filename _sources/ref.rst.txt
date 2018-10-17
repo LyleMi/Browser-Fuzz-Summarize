@@ -59,7 +59,11 @@
 
 11. `oss fuzz <https://github.com/google/oss-fuzz>`_
 
-12 `Domato <https://github.com/googleprojectzero/domato>`_
+12. `Domato <https://github.com/googleprojectzero/domato>`_
+
+13. `mitigationview <https://github.com/fishstiqz/mitigationview>`_
+
+14. `sandbox attacksurface analysis tools <https://github.com/google/sandbox-attacksurface-analysis-tools>`_
 
 Blog or Talks
 --------------------------------------------------
@@ -99,6 +103,8 @@ Blog or Talks
 
 18 `wabt <https://github.com/WebAssembly/wabt>`_
 
+19. `ecma262 <https://github.com/tc39/ecma262>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -118,3 +124,5 @@ Blog or Talks
 8. `awesome browser exploit <https://github.com/Escapingbug/awesome-browser-exploit>`_
 
 9. `pwnjs <https://github.com/theori-io/pwnjs>`_
+
+10. `Write-up for CVE-2018-8495 <https://leucosite.com/Microsoft-Edge-RCE/>`_

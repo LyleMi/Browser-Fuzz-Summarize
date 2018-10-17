@@ -8,7 +8,8 @@
    kernel
    js
    chrome
-   chakra
    webkit
+   edge
+   chakra
    webidl
    wasm

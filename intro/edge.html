@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.4. Webkit &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>1.5. Edge &mdash; browser_fuzz_summarize 1.0 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.5. Edge" href="edge.html" />
-    <link rel="prev" title="1.3. Chrome" href="chrome.html" /> 
+    <link rel="next" title="1.6. ChakraCore" href="chakra.html" />
+    <link rel="prev" title="1.4. Webkit" href="webkit.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -89,13 +89,13 @@
 <li class="toctree-l2"><a class="reference internal" href="kernel.html">1.1. 浏览器内核简介</a></li>
 <li class="toctree-l2"><a class="reference internal" href="js.html">1.2. JavaScript引擎</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chrome.html">1.3. Chrome</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.4. Webkit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">1.4.1. 简介</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#javascript-core">1.4.2. JavaScript Core</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">1.4.3. 编译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webkit.html">1.4. Webkit</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. Edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.5.1. 进程架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.5.2. 完整性级别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appcontainer">1.5.3. AppContainer</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="edge.html">1.5. Edge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="chakra.html">1.6. ChakraCore</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webidl.html">1.7. WebIDL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wasm.html">1.8. WebAssembly</a></li>
@@ -155,13 +155,13 @@
         
           <li><a href="index.html">1. 基础知识</a> &raquo;</li>
         
-      <li>1.4. Webkit</li>
+      <li>1.5. Edge</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/intro/webkit.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/intro/edge.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -174,26 +174,134 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="webkit">
-<h1>1.4. Webkit<a class="headerlink" href="#webkit" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="edge">
+<h1>1.5. Edge<a class="headerlink" href="#edge" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>1.4.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Webkit主要由WebCore和JavaScript Core组成，除此之外，WebKit Embedding API是负责浏览器UI与WebKit进行交互的部分，而WebKit Ports则是让Webkit更加方便的移植到各个操作系统、平台上，提供的一些调用Native Library的接口。</p>
-</div>
-<div class="section" id="javascript-core">
-<h2>1.4.2. JavaScript Core<a class="headerlink" href="#javascript-core" title="Permalink to this headline">¶</a></h2>
-<p>JavaScript Core的优化执行分为四个部分，LLInt、Baseline、DFG、FTL。
-LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开始做一定的优化，FTL阶段做了充分的优化。</p>
+<h2>1.5.1. 进程架构<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在较早的版本，Edge由 <code class="docutils literal notranslate"><span class="pre">MicrosoftEdge.exe</span></code> <code class="docutils literal notranslate"><span class="pre">MicrosoftEdgeCP.exe</span></code> 两个进程组成。而后Edge使用UWP架构，之后其进程主要由 <code class="docutils literal notranslate"><span class="pre">RuntimeBroker.exe</span></code> 和其他进程组成，其中 <code class="docutils literal notranslate"><span class="pre">RuntimeBroker.exe</span></code> 为中等完整性级别，其他进程都在 <code class="docutils literal notranslate"><span class="pre">AppContainer</span></code> 中以低完整性级别运行。</p>
+<p>当前版本的Edge运行的进程如下：</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>MicrosoftEdge.exe</dt>
+<dd><ul class="first last">
+<li>mediumintegrity</li>
+<li>主进程</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe (Web)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>Web内容处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe (UI)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>新Tab的内容处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe (Extensions)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>扩展处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe(Settings)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>设置相关处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe(Flash)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>Flash处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>MicrosoftEdgeCP.exe(OOPJS)</dt>
+<dd><ul class="first last">
+<li>AppContainer</li>
+<li>JIT编译处理</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>browser_broker.exe</dt>
+<dd><ul class="first last">
+<li>mediumintegrity</li>
+<li>Broker进程</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>RuntimeBroker.exe</dt>
+<dd><ul class="first last">
+<li>mediumintegrity</li>
+<li>权限管理</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="id2">
-<h2>1.4.3. 编译<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">depth</span><span class="o">=</span><span class="mi">1</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">webkit</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">WebKit</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">WebKit</span>
-<span class="n">echo</span> <span class="n">Y</span> <span class="o">|</span> <span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">gtk</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">dependencies</span>
-<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">update</span><span class="o">-</span><span class="n">webkitgtk</span><span class="o">-</span><span class="n">libs</span>
-<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">webkit</span> <span class="o">--</span><span class="n">release</span> <span class="o">--</span><span class="n">gtk</span> <span class="o">--</span><span class="n">cmakeargs</span><span class="o">=-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="s2">&quot;-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++&quot;</span>
-</pre></div>
+<h2>1.5.2. 完整性级别<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>高等完整性级别是管理员权限</li>
+<li>中等完整性级别是普通用户运行进程的权限</li>
+<li><dl class="first docutils">
+<dt>低完整性级别有以下的限制</dt>
+<dd><ul class="first last">
+<li>大多数的Windows消息和进程Hook都被UIPI(User Interface Privilege Isolation)限制</li>
+<li>开进程和CreateRemoteThread被mandatory标签禁止</li>
+<li>不允许以写权限打开共享内存</li>
+<li>使用比其完整性级别高的进程创建的对象</li>
+<li>绑定到运行中的Component Object Model服务</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>低完整性级别可以操作</dt>
+<dd><ul class="first last">
+<li>剪贴板</li>
+<li>Remote Procedure Calls (RPC)</li>
+<li>Sockets</li>
+<li>被更高级别完整性进程设置为允许的Window Message</li>
+<li>被更高级别完整性进程设置为允许的共享内存</li>
+<li>被更高级别完整性进程设置为允许的COM</li>
+<li>被更高级别完整性进程设置为允许的命名管道</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>不信任级别几乎所有涉及到权限的操作都不被允许</li>
+</ul>
 </div>
+<div class="section" id="appcontainer">
+<h2>1.5.3. AppContainer<a class="headerlink" href="#appcontainer" title="Permalink to this headline">¶</a></h2>
+<p>AppContainer是Windows提出的进程隔离机制。通过将应用程序与不需要的资源和其他应用程序隔离，可以最大限度地减少恶意操纵的机会 基于最小权限授予访问权限可防止应用程序和用户访问超出其权限的资源。</p>
+<p>其提供了用户凭证、设备、文件、网络、进程等的隔离。</p>
 </div>
 </div>
 
@@ -205,10 +313,10 @@ LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开�
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="edge.html" class="btn btn-neutral float-right" title="1.5. Edge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="chakra.html" class="btn btn-neutral float-right" title="1.6. ChakraCore" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="chrome.html" class="btn btn-neutral" title="1.3. Chrome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="webkit.html" class="btn btn-neutral" title="1.4. Webkit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
