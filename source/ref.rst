@@ -126,3 +126,5 @@ Blog or Talks
 9. `pwnjs <https://github.com/theori-io/pwnjs>`_
 
 10. `Write-up for CVE-2018-8495 <https://leucosite.com/Microsoft-Edge-RCE/>`_
+
+11. `blackhat us 18 attacking client side jit compilers <https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf>`_
