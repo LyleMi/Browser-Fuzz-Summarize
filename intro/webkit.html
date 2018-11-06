@@ -192,6 +192,10 @@ LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开�
 <span class="n">echo</span> <span class="n">Y</span> <span class="o">|</span> <span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">gtk</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">dependencies</span>
 <span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">update</span><span class="o">-</span><span class="n">webkitgtk</span><span class="o">-</span><span class="n">libs</span>
 <span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">webkit</span> <span class="o">--</span><span class="n">release</span> <span class="o">--</span><span class="n">gtk</span> <span class="o">--</span><span class="n">cmakeargs</span><span class="o">=-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="s2">&quot;-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++&quot;</span>
+<span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">alexlarsson</span><span class="o">/</span><span class="n">flatpak</span>
+<span class="n">apt</span> <span class="n">update</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">flatpak</span>
+<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">run</span><span class="o">-</span><span class="n">minibrowser</span> <span class="o">--</span><span class="n">gtk</span>
 </pre></div>
 </div>
 </div>
