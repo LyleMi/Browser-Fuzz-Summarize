@@ -128,3 +128,9 @@ Blog or Talks
 10. `Write-up for CVE-2018-8495 <https://leucosite.com/Microsoft-Edge-RCE/>`_
 
 11. `blackhat us 18 attacking client side jit compilers <https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf>`_
+
+规范 / 手册
+--------------------------------------------------
+1. `wc3规范 <https://www.w3.org/standards/>`_
+2. `whatwg <https://html.spec.whatwg.org/>`_
+3. `MDN <https://developer.mozilla.org>`_
