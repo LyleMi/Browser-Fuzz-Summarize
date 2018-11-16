@@ -89,12 +89,13 @@
 <li class="toctree-l1"><a class="reference internal" href="papers/index.html">2. 相关论文</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mitigation.html">3. 浏览器防护措施</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. 浏览器漏洞类型</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.1. 信息泄漏漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">4.2. 内存破坏漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">4.3. 沙箱逃逸漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">4.4. 扩展和插件漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ui">4.5. UI欺骗</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xss-api">4.6. 特权域 XSS + 特权域 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.1. 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">4.2. 信息泄漏漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">4.3. 内存破坏漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.4. 沙箱逃逸漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4.5. 扩展和插件漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ui">4.6. UI欺骗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xss-api">4.7. 特权域 XSS + 特权域 API</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fuzz.html">5. Fuzz方法</a></li>
@@ -168,31 +169,35 @@
   <div class="section" id="id1">
 <h1>4. 浏览器漏洞类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>4.1. 信息泄漏漏洞<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>4.1. 简介<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>一般漏洞指通过软件缺陷触发的，会有损完整性、可用性、机密性三者中一项的问题。在浏览器研究中，一般涉及到所有会影响到用户信息安全的问题，例如页面伪造、钓鱼、下载文件病毒检查、广告弹窗、不良内容过滤、用户设置保护等问题。通常可以分为以下几种类型。</p>
+</div>
+<div class="section" id="id3">
+<h2>4.2. 信息泄漏漏洞<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>旧版本的IE浏览器可以用 JS 检测是否存在某文件。这样会泄漏用户是否安装了杀毒软件，以便恶意代码进行下一步操作。</li>
 <li>有些信息泄漏漏洞会泄漏内存的信息，攻击者可能使用泄漏的信息来绕过操作系统的保护机制，如ASLR、DEP等。</li>
 <li>还有一类信息泄漏漏洞：UXSS（通用跨站脚本漏洞）。这种跨越域隔离策略的漏洞，可以在后台打开其它域的网页，或者获取其他域的cookie。</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>4.2. 内存破坏漏洞<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>4.3. 内存破坏漏洞<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>内存破坏漏洞又可以细分为释放后重用漏洞（UAF），越界读写漏洞，类型混淆漏洞，其中越界读写漏洞也能用来泄漏内存信息。该类型的漏洞可能由DOM渲染、JavaScript引擎、PDF解析、图片解析、音频解析等多个模块触发。</p>
 </div>
-<div class="section" id="id4">
-<h2>4.3. 沙箱逃逸漏洞<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>4.4. 沙箱逃逸漏洞<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>为了防止RCE漏洞影响主机，部分浏览器提供了沙箱机制，而一些漏洞可以使得沙箱机制被逃逸。</p>
 </div>
-<div class="section" id="id5">
-<h2>4.4. 扩展和插件漏洞<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>4.5. 扩展和插件漏洞<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>某些浏览器插件或者扩展会存在一些安全问题，如果浏览器没有做好隔离，则可能利用其漏洞对主机进行攻击。</p>
 </div>
 <div class="section" id="ui">
-<h2>4.5. UI欺骗<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h2>
+<h2>4.6. UI欺骗<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h2>
 <p>浏览器UI上最容易发生的攻击就是用户界面欺骗，也就是UI Spoof。通常UI Spoof被用来进行网络钓鱼攻击使用。网络钓鱼是社会工程学中用于欺骗用户，进而获取用户的敏感信息的一种攻击手段，通常使用伪造网站等方法，诱使用户从视觉感官上相信其是合法真实的，当用户在浏览器中进行操作后，敏感信息就有可能被攻击者获取到。</p>
 </div>
 <div class="section" id="xss-api">
-<h2>4.6. 特权域 XSS + 特权域 API<a class="headerlink" href="#xss-api" title="Permalink to this headline">¶</a></h2>
+<h2>4.7. 特权域 XSS + 特权域 API<a class="headerlink" href="#xss-api" title="Permalink to this headline">¶</a></h2>
 <p>比如搜狗浏览器浏览网页可下载任意文件到任意位置，重启之后，电脑可能被完全控制。百度浏览器可静默安装插件，且存在目录穿越漏洞。解压缩到启动目录，重启之后，电脑被完全控制。</p>
 </div>
 </div>
