@@ -105,6 +105,12 @@ Blog or Talks
 
 19. `ecma262 <https://github.com/tc39/ecma262>`_
 
+20. `strengthening microsoft edge sandbox <https://blogs.windows.com/msedgedev/2017/03/23/strengthening-microsoft-edge-sandbox/>`_
+
+21. `breaking the local browser sandbox <https://authentic8.blog/breaking-the-local-browser-sandbox-1/>`_
+
+22. `Forshaw Digging For IE11 Sandbox Escapes <https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
