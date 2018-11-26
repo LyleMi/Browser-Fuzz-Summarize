@@ -79,13 +79,13 @@ Blog or Talks
 
 6. `符号执行入门 <https://zhuanlan.zhihu.com/p/26927127>`_
 
-7. `blueclosure <http://blog.blueclosure.com/>`_
+7. `blueclosure blog <http://blog.blueclosure.com/>`_
 
 8. `MongoDBs fuzzer <https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos>`_
 
 9. `JavaScript engine fundamentals optimizing prototypes <https://mathiasbynens.be/notes/prototypes>`_
 
-10. ` 深入理解Webkit <http://www.starming.com/2017/10/11/deeply-analyse-webkit/>`_
+10. `深入理解Webkit <http://www.starming.com/2017/10/11/deeply-analyse-webkit/>`_
 
 11. `Timeline of Web Browsers <https://en.wikipedia.org/wiki/Timeline_of_web_browsers>`_
 
@@ -101,7 +101,7 @@ Blog or Talks
 
 17. `Finding and Exploiting Safari Bugs using Publicly Available Tools <https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html>`_
 
-18 `wabt <https://github.com/WebAssembly/wabt>`_
+18. `wabt <https://github.com/WebAssembly/wabt>`_
 
 19. `ecma262 <https://github.com/tc39/ecma262>`_
 
