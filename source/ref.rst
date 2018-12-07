@@ -148,3 +148,5 @@ Blog or Talks
 4. `Mozilla Source Tree Documentation <https://firefox-source-docs.mozilla.org/>`_
 
 5. `HTML Standard by whatwg <https://github.com/whatwg/html>`_
+
+6. `V8 Documentation <https://v8.dev/docs>`_

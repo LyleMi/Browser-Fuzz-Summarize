@@ -10,6 +10,7 @@
    chrome
    webkit
    edge
+   v8
    chakra
    webidl
    wasm
