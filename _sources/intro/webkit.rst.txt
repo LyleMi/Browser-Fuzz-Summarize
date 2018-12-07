@@ -15,12 +15,17 @@ LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开�
 
 ::
 
+    apt update
+    apt install flatpak libseccomp-dev
+    git clone https://github.com/projectatomic/bubblewrap
+    ./autogen.sh
+    ./configure
+    make
+    make insatll
     git clone --depth=1 git://git.webkit.org/WebKit.git
     cd WebKit
     echo Y | ./Tools/gtk/install-dependencies
     ./Tools/Scripts/update-webkitgtk-libs
     ./Tools/Scripts/build-webkit --release --gtk --cmakeargs=-DCMAKE_CXX_FLAGS="-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
     add-apt-repository ppa:alexlarsson/flatpak
-    apt update
-    apt install flatpak
     ./Tools/Scripts/run-minibrowser --gtk

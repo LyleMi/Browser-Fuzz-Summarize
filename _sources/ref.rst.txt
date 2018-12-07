@@ -27,13 +27,13 @@
 
 12. ``IEEE 2005`` Oehlert P. Violating Assumptions with Fuzzing[J]. IEEE Security & Privacy, 2005, 3(2):58-62.
 
-13. ``usenix 2012`` Holler C, Herzig K, Zeller A. Fuzzing with Code Fragments[J]. Proc Usenix Security, 2012:445--458.
+13. ``Usenix 2012`` Holler C, Herzig K, Zeller A. Fuzzing with Code Fragments[J]. Proc Usenix Security, 2012:445--458.
 
 14. ``IEEE CCIS2012`` ``Fuzz BMP`` Hou Y, Tao G, Shi Z, et al. Research on Android browser fuzzing based on bitmap structure[M]. 2013.
 
 15. ``ACM 2017`` Guo R. MongoDB's JavaScript Fuzzer[M]. ACM, 2017.
 
-16. ``usenix 2018`` Yun I, Lee S, Xu M, et al. QSYM: A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing[C]//27th USENIX Security Symposium (USENIX Security 18). USENIX Association, 2018.
+16. ``Usenix 2018`` Yun I, Lee S, Xu M, et al. QSYM: A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing[C]//27th USENIX Security Symposium (USENIX Security 18). USENIX Association, 2018.
 
 工具
 --------------------------------------------------
@@ -51,11 +51,11 @@
 
 7. `exploitable <https://msecdbg.codeplex.com/>`_
 
-8. ``300+start`` ``spidermonkey-engine`` `jsfunfuzz <https://github.com/MozillaSecurity/funfuzz>`_
+8. `jsfunfuzz <https://github.com/MozillaSecurity/funfuzz>`_
 
-9. ``ruby`` `metasm <https://github.com/jjyg/metasm/>`_
+9. `metasm <https://github.com/jjyg/metasm/>`_
 
-10. ``w3c`` `web platform tests <https://github.com/w3c/web-platform-tests>`_
+10. `web platform tests <https://github.com/w3c/web-platform-tests>`_
 
 11. `oss fuzz <https://github.com/google/oss-fuzz>`_
 
@@ -144,3 +144,9 @@ Blog or Talks
 2. `whatwg <https://html.spec.whatwg.org/>`_
 
 3. `MDN <https://developer.mozilla.org>`_
+
+4. `Mozilla Source Tree Documentation <https://firefox-source-docs.mozilla.org/>`_
+
+5. `HTML Standard by whatwg <https://github.com/whatwg/html>`_
+
+6. `V8 Documentation <https://v8.dev/docs>`_
