@@ -65,6 +65,10 @@
 
 14. `sandbox attacksurface analysis tools <https://github.com/google/sandbox-attacksurface-analysis-tools>`_
 
+15. `NodeFuzz <https://github.com/attekett/NodeFuzz>`_
+
+16. `wadi <https://github.com/sensepost/wadi>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
