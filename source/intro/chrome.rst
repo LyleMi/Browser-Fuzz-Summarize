@@ -102,13 +102,4 @@ Chrome用了blink，一个开源的layout engine来解析HTML的layout。
 - ``chrome://net-internals`` 网络相关信息
 - ``chrome://quota-internals`` 磁盘相关信息
 
-
-参考链接
---------------------------------------------------
-- `chromium documents <https://chromium.googlesource.com/chromium/src/+/master/docs/>`_
-- `chromium design documents <https://www.chromium.org/developers/design-documents>`_
-- `V8 Ignition online doc <https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t>`_
-- `digging into turbofan jit <https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html>`_
-- `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
-
 .. |framework| image:: ../images/chrome-frame.png

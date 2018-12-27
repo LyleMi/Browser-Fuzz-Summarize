@@ -115,6 +115,10 @@ Blog or Talks
 
 22. `Forshaw Digging For IE11 Sandbox Escapes <https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf>`_
 
+23. `digging into turbofan jit <https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html>`_
+
+24. `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -154,3 +158,11 @@ Blog or Talks
 5. `HTML Standard by whatwg <https://github.com/whatwg/html>`_
 
 6. `V8 Documentation <https://v8.dev/docs>`_
+
+7. `chromium documents <https://chromium.googlesource.com/chromium/src/+/master/docs/>`_
+
+8. `chromium design documents <https://www.chromium.org/developers/design-documents>`_
+
+9. `V8 Ignition online doc <https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t>`_
+
+10. `SpiderMonkey <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey>`_

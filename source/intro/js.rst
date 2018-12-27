@@ -19,7 +19,3 @@ JavaScript引擎是一个专门处理JavaScript脚本的虚拟机，一般会附
 - JavaScript源代码被Parser解析成AST
 - AST经Interpreter解析成Bytecode后执行
 - 不断执行Bytecode，收集运行时信息，生成优化后的Bytecode
-
-参考链接
---------------------------------------------------
-- `SpiderMonkey <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey>`_
