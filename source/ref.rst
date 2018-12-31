@@ -69,6 +69,8 @@
 
 16. `wadi <https://github.com/sensepost/wadi>`_
 
+17. `Angora <https://github.com/AngoraFuzzer/Angora>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
@@ -144,6 +146,8 @@ Blog or Talks
 11. `blackhat us 18 attacking client side jit compilers <https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf>`_
 
 12. `WebExtension security Part1 <https://leucosite.com/WebExtension-Security/>`_
+
+13. `cve-2018-8629 <https://github.com/phoenhex/files/blob/master/pocs/cve-2018-8629-chakra.js>`_
 
 规范 / 手册
 --------------------------------------------------
