@@ -71,6 +71,8 @@
 
 17. `Angora <https://github.com/AngoraFuzzer/Angora>`_
 
+18. `afl <http://lcamtuf.coredump.cx/afl/>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
