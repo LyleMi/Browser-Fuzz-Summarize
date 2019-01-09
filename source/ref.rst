@@ -123,6 +123,8 @@ Blog or Talks
 
 24. `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
 
+25. `fuzzingbook <https://www.fuzzingbook.org/>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
