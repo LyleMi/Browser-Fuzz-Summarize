@@ -127,6 +127,8 @@ Blog or Talks
 
 25. `fuzzing binaries without execve <https://lcamtuf.blogspot.com/2014/10/fuzzing-binaries-without-execve.html>`_
 
+26. `fuzzingbook <https://www.fuzzingbook.org/>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
