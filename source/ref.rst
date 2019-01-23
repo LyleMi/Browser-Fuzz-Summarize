@@ -73,6 +73,8 @@
 
 18. `afl <http://lcamtuf.coredump.cx/afl/>`_
 
+19. `neuzz <https://github.com/Dongdongshe/neuzz>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
@@ -123,6 +125,8 @@ Blog or Talks
 
 24. `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
 
+25. `fuzzing binaries without execve <https://lcamtuf.blogspot.com/2014/10/fuzzing-binaries-without-execve.html>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -150,6 +154,8 @@ Blog or Talks
 12. `WebExtension security Part1 <https://leucosite.com/WebExtension-Security/>`_
 
 13. `cve-2018-8629 <https://github.com/phoenhex/files/blob/master/pocs/cve-2018-8629-chakra.js>`_
+
+14. `Introduction to SpiderMonkey exploitation <https://doar-e.github.io/blog/2018/11/19/introduction-to-spidermonkey-exploitation/>`_
 
 规范 / 手册
 --------------------------------------------------
