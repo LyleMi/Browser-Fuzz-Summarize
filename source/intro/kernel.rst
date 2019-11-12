@@ -3,11 +3,10 @@
 
 浏览器内核
 --------------------------------------------------
-
-浏览器内核主要分成两部分：渲染引擎(layout engineer或Rendering Engine)和JavaScript引擎。
+浏览器内核主要分成两部分：渲染引擎(Layout engineer或Rendering Engine)和JavaScript引擎。
 
 渲染引擎负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。
 
 浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。所有网页浏览器、电子邮件客户端以及其它需要编辑、显示网络内容的应用程序都需要内核。
 
-Javascript引擎则解析和执行Javascript来实现网页的动态效果。最开始渲染引擎和Javascript引擎并没有区分的很明确，后来Javascript引擎越来越独立，内核就倾向于只指渲染引擎。
+JavaScript引擎则解析和执行JavaScript来实现网页的动态效果。最开始渲染引擎和JavaScript引擎并没有区分的很明确，后来JavaScript引擎越来越独立，内核就倾向于只指渲染引擎。

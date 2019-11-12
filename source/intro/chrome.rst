@@ -6,7 +6,9 @@ Chrome
 Chrome涉及到多个进程，在各个进程间都设置了不同的完整性程度
 
 + 主进程
-    + 处理用户，管理子进程
+    + 主框架部分，管理子进程
+    + 管理地址栏、书签、前进/后退按钮等
+    + 处理浏览器的不可见任务，如网络请求和本地文件访问等
     + Medium Integrity Level
 + 渲染进程
     + 渲染和处理获取到的Web内容
@@ -43,7 +45,9 @@ Chrome用了blink，一个开源的layout engine来解析HTML的layout。
 视图管理
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 每一个渲染进程都有由RenderProcess管理的和浏览器的标签页对应的一个或多个RenderView对象。相应的RenderProcessHost都有一个RenderViewHost和正在渲染的view相对应。
+
 每个view都有一个ID，用来唯一标识。ID在渲染进程中是唯一的，但是在浏览器中是不唯一，所以确定一个view需要view ID和RenderProcessHost。
+
 浏览器和特定标签页之间的通信是通过RenderViewHost对象完成的，RenderViewHost知道如何通过RenderProcessHost传递信息给RenderProcess和RenderView
 
 模块和接口
