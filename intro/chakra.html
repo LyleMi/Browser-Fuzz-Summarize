@@ -17,35 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.8. WebIDL" href="webidl.html" />
     <link rel="prev" title="1.6. V8" href="v8.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -108,9 +109,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../mitigation.html">3. 浏览器防护措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vultype.html">4. 浏览器漏洞类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fuzz.html">5. Fuzz方法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tool.html">6. Fuzz实现</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grinder.html">7. Grinder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ref.html">8. 参考资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">6. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref.html">7. 参考资料</a></li>
 </ul>
 
             
@@ -183,8 +183,8 @@
 <h2>1.7.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore是一个完整的JavaScript虚拟机，它拥有着和Chakra几乎相同的功能与特性。但在它们之间有两个不同点：</p>
 <ul class="simple">
-<li>ChakraCore没有公开Chakra与浏览器/UWP之间的私有绑定部分</li>
-<li>Chakra使用一套基于COM的诊断API，而ChakraCore使用一套基于JSON的诊断API。这套API是平台无关的，可用于之后不同实现之间的操作。</li>
+<li><p>ChakraCore没有公开Chakra与浏览器/UWP之间的私有绑定部分</p></li>
+<li><p>Chakra使用一套基于COM的诊断API，而ChakraCore使用一套基于JSON的诊断API。这套API是平台无关的，可用于之后不同实现之间的操作。</p></li>
 </ul>
 <p><img alt="framework" src="../_images/framework.png" /></p>
 </div>
@@ -192,9 +192,9 @@
 <h2>1.7.2. 执行流程<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>ChakraCore支持一种多级架构，包括：</p>
 <ul class="simple">
-<li>(1)用来快速启动的解释器</li>
-<li>(2)用来产生高度优化的代码的并行JIT编译器</li>
-<li>(3)一个并行的后台GC来降低停顿，提高响应速度</li>
+<li><p>(1)用来快速启动的解释器</p></li>
+<li><p>(2)用来产生高度优化的代码的并行JIT编译器</p></li>
+<li><p>(3)一个并行的后台GC来降低停顿，提高响应速度</p></li>
 </ul>
 <p>一旦JavaScript开始运行，ChakraCore首先进行一次快速的语法解析来报告语法错误。接下来ChakraCore的每个函数会按需执行(as-needed-per-function)。</p>
 <p>只要有可能，ChakraCore就会延迟那些暂时不需要的函数的语法解析和AST的生成，并且将JIT编译和垃圾回收等工作推出主线程。这样做的目的是为了有效利用硬件资源去保证响应速度。</p>
@@ -270,7 +270,7 @@
         <a href="webidl.html" class="btn btn-neutral float-right" title="1.8. WebIDL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="v8.html" class="btn btn-neutral" title="1.6. V8" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="v8.html" class="btn btn-neutral float-left" title="1.6. V8" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -279,7 +279,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle.
+        &copy; Copyright 2017, lyle
 
     </p>
   </div>
@@ -296,37 +296,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

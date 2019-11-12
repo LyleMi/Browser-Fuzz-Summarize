@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2. Grinder &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3. AFL" href="afl.html" />
+    <link rel="prev" title="6.1. Fuzzer实现" href="implementation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> browser_fuzz_summarize
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">2. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mitigation.html">3. 浏览器防护措施</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vultype.html">4. 浏览器漏洞类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">5. Fuzz方法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">6. Fuzzers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="implementation.html">6.1. Fuzzer实现</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. Grinder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">6.2.1. 客户端配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node">6.2.2. Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">6.2.2.1. 主要文件说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.2.2.2. 运行流程</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#server">6.2.3. Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metasm">6.2.4. metasm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fuzzer">6.2.5. Fuzzer编写</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.2.5.1. 库函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simpleexample">6.2.5.2. SimpleExample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">6.2.5.3. 编写</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nduja">6.2.6. nduja</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fileja">6.2.7. fileja</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="afl.html">6.3. AFL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ref.html">7. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">browser_fuzz_summarize</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">6. Fuzzers</a> &raquo;</li>
+        
+      <li>6.2. Grinder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/fuzzers/grinder.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="grinder">
+<h1>6.2. Grinder<a class="headerlink" href="#grinder" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>6.2.1. 客户端配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>32位系统</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.\grinder\node\data\x86\grinder_logger.dll</span></code> 复制到 <code class="docutils literal notranslate"><span class="pre">c:\windows\system32\</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>64位系统</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">.\grinder\node\data\x86\grinder_logger.dll</span></code> 复制到 <code class="docutils literal notranslate"><span class="pre">c:\windows\syswow64\</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.\grinder\node\data\x64\grinder_logger.dll</span></code> 复制到 <code class="docutils literal notranslate"><span class="pre">c:\windows\system32\</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>创建保存符号文件的目录 <code class="docutils literal notranslate"><span class="pre">c:\symbols\</span></code></p></li>
+<li><p>编辑``config.rb``</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ruby</span> <span class="pre">grinder.rb</span> <span class="pre">[--config=c:\path\to\alternative\config.rb]</span> <span class="pre">--browser=BROWSER</span></code></p></li>
+<li><p>ps: <strong>目前grinder只支持ruby 1.9-2.0，并不支持高于2.0的版本</strong></p></li>
+</ul>
+</div>
+<div class="section" id="node">
+<h2>6.2.2. Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>6.2.2.1. 主要文件说明<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>browser: hook相应浏览器的parseFloat</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>chrome.rb</p></li>
+<li><p>firefox.rb</p></li>
+<li><p>internetexplore.rb</p></li>
+<li><p>safari.rb</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>core: 核心代码</p>
+<blockquote>
+<div><ul>
+<li><p>debug</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>debugger.rb 浏览器所用到的debugger基类，继承自Metasm</p></li>
+<li><p>logger.rb 记录日志</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>configuration.rb 配置需要的变量，检查运行环境</p></li>
+<li><p>crypt.rb openssl 加解密库函数</p></li>
+<li><p>debugger.rb</p></li>
+<li><p>logging.rb 控制台输出</p></li>
+<li><p>server.rb 运行web服务器，浏览器访问该服务器以获得样本</p></li>
+<li><p>webstats.rb</p></li>
+<li><p>xmlcrashlog.rb 用xml的格式记录crashlog</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>crashes：生成的crash样本存放的文件夹</p></li>
+<li><p>data: 测试用的图片/pdf/js等文件，以及需要用到的dll</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>continue.exe =&gt; 运行在后台，点击因为crash生成的弹窗</p></li>
+<li><p>logging.js</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>fuzzer：用户实现自己fuzzer的位置</p></li>
+<li><p>lib： grinder用到的三方库主要是metasm，这是一个ruby的用来做二进制的库</p></li>
+<li><p>source</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>continue.exe 源代码</p></li>
+<li><p>logger.dll 源代码</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>config.rb 配置文件，若一台电脑运行多个节点时，需要多个配置文件</p></li>
+<li><p>crypto.rb 生成密钥，加密生成的crash</p></li>
+<li><p>grinder.rb 主文件</p></li>
+<li><p>reduction.rb</p></li>
+<li><p>testcase.rb 从日志中恢复样本文件</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>6.2.2.2. 运行流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>入口文件为grinder.rb</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>初始化过程</dt><dd><ul>
+<li><p>初始化需要fuzz的浏览器</p></li>
+<li><p>初始化环境相关变量</p></li>
+<li><p>检查dll加载情况</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>运行过程</dt><dd><ul>
+<li><p>检查web server状态，若停止或未启动，则启动</p></li>
+<li><p>启动浏览器相应的debugger</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>debugger运行过程</p>
+<ul class="simple">
+<li><p>初始化logger</p></li>
+<li><p>hook heap</p></li>
+<li><p>运行目标浏览器</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="server">
+<h2>6.2.3. Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<p>服务器端采用典型的PHP+MySQL的结构，设计思路是比较老的非MVC结构，总体功能比较单一，主要用来查看fuzzer节点的情况</p>
+<p>部分文件功能说明如下</p>
+<ul class="simple">
+<li><p>account.php 用户账户管理相关</p></li>
+<li><p>crash.php 管理crash</p></li>
+<li><p>crashes.php 管理crash</p></li>
+<li><p>fuzzers.php fuzz节点状态</p></li>
+<li><p>install.php 数据库初始化</p></li>
+</ul>
+</div>
+<div class="section" id="metasm">
+<h2>6.2.4. metasm<a class="headerlink" href="#metasm" title="Permalink to this headline">¶</a></h2>
+<p>Metasm是一个ruby实现的汇编器、反编汇器以及编译器。</p>
+</div>
+<div class="section" id="fuzzer">
+<h2>6.2.5. Fuzzer编写<a class="headerlink" href="#fuzzer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>6.2.5.1. 库函数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>grinder提供的库函数主要有下面这些</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rand(</span> <span class="pre">x</span> <span class="pre">)</span></code> Pick a random number between 0 and X</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rand_bool()</span></code> Pick either true or false</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rand_item(</span> <span class="pre">arr</span> <span class="pre">)</span></code> Pick an item from an array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tickle(obj)</span></code> 触发一个obj的所有属性</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOGGER(</span> <span class="pre">name</span> <span class="pre">)</span></code> Logger类的构造函数</p></li>
+</ul>
+</div>
+<div class="section" id="simpleexample">
+<h3>6.2.5.2. SimpleExample<a class="headerlink" href="#simpleexample" title="Permalink to this headline">¶</a></h3>
+<p>SimpleExample.html 是grinder给出来的示例代码，展示了Fuzzer所需要的基本元素
+编写logger必须的代码如下</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">new</span> <span class="n">LOGGER</span><span class="p">(</span> <span class="s2">&quot;SimpleExample&quot;</span> <span class="p">);</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">starting</span><span class="p">();</span>
+<span class="o">/*</span> <span class="n">other</span> <span class="n">code</span> <span class="n">here</span> <span class="o">*/</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">finished</span><span class="p">();</span>
+<span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">href</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">protocol</span> <span class="o">+</span> <span class="s1">&#39;//&#39;</span> <span class="o">+</span> <span class="n">window</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">host</span> <span class="o">+</span> <span class="s1">&#39;/grinder&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>上面部分代码主要用于生成/初始化logger，以及完成fuzz之后回到grinder server</p>
+<p>fuzzer主要的代码主要还是生成随机元素的部分，继续以SimpleExample.html为例</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// 定义将要fuzz的元素
+var elements = [ &#39;div&#39;, &#39;input&#39;, &#39;textarea&#39;, &#39;a&#39;, &#39;img&#39;, &#39;form&#39; ];
+
+// 生成相关元素
+var elementA  = rand_item( elements );
+var elementB  = rand_item( elements );
+
+// 创建元素并记录，注意因为这里的fuzzer样本是随机生成的，所以需要详细的记录每一步的动作以保证可以复现
+logger.log( &quot;id_0 = document.createElement( &#39;&quot; + elementA + &quot;&#39; );&quot;, &quot;grind&quot;, 1 );
+var id_0 = document.createElement( elementA );
+
+logger.log( &quot;document.body.appendChild( id_0 );&quot;, &quot;grind&quot;, 1 );
+document.body.appendChild( id_0 );
+
+// 在随后的代码对之前的元素进行变化，主要是对其属性值进行变换、调用、对换等操作
+/* ... */
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>6.2.5.3. 编写<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>在简单看过相关的库函数和一个简单的样本之后，编写fuzzer的基础知识就已经足够了。
+其必要的逻辑是在生成/修改等操作前后都调用log记录下足够的信息以便调试crash。另外就主要是设计好fuzzer种子生成的算法以及随机元素变换的算法以获取更多的crash。</p>
+</div>
+</div>
+<div class="section" id="nduja">
+<h2>6.2.6. nduja<a class="headerlink" href="#nduja" title="Permalink to this headline">¶</a></h2>
+<p>SimpleExample.html更多的只是一个简单的样本，一个高效的fuzzer编写需要更精巧的思路，所以选择nduja进一步进行分析</p>
+<p>其简单的函数调用树如下</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>step1</dt><dd><ul>
+<li><dl class="simple">
+<dt>buildElementsTree1</dt><dd><ul>
+<li><p>createStyleSheet</p></li>
+<li><dl class="simple">
+<dt>createMultipleElement</dt><dd><ul>
+<li><p>genRandomElement</p></li>
+<li><p>appendToRandomElement</p></li>
+<li><p>initialize =&gt; add multiply random listener</p></li>
+<li><p>tweakattributes1 =&gt; set attr random vaule</p></li>
+<li><p>tweakstyle1 =&gt; set random style sheet</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>initialize</p></li>
+<li><dl class="simple">
+<dt>boom</dt><dd><ul>
+<li><dl class="simple">
+<dt>createNodeIterator</dt><dd><ul>
+<li><dl class="simple">
+<dt>ElementChecker</dt><dd><ul>
+<li><dl class="simple">
+<dt>Random - case 1</dt><dd><ul>
+<li><p>createElemRange1</p></li>
+<li><p>deleteRange1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Random - case 2</dt><dd><ul>
+<li><p>random skip / accept</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>createTreeWalker</dt><dd><ul>
+<li><p>ElementChecker</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>createTagAggregation1</p></li>
+<li><p>createElemRange</p></li>
+<li><p>createTxtRange</p></li>
+<li><dl class="simple">
+<dt>alterRange =&gt; random action</dt><dd><ul>
+<li><p>deleteContents</p></li>
+<li><p>collapse</p></li>
+<li><p>extractContents</p></li>
+<li><p>surroundContents</p></li>
+<li><p>selectNode</p></li>
+<li><p>selectNodeContents</p></li>
+<li><p>insertNode</p></li>
+<li><p>setStartAfter</p></li>
+<li><p>setStartBefore</p></li>
+<li><p>setEndAfter</p></li>
+<li><p>setEndBefore</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>spray</p></li>
+<li><dl class="simple">
+<dt>moveIterator</dt><dd><ul>
+<li><dl class="simple">
+<dt>random</dt><dd><ul>
+<li><p>nextNode</p></li>
+<li><p>previousNode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>fuzzAttributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>moveTreeWalker</dt><dd><ul>
+<li><dl class="simple">
+<dt>random</dt><dd><ul>
+<li><p>nextNode</p></li>
+<li><p>previousNode</p></li>
+<li><p>previousSibling</p></li>
+<li><p>nextSibling</p></li>
+<li><p>firstChild</p></li>
+<li><p>lastChild</p></li>
+<li><p>parentNode</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>fuzzAttributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tagCrawler1</dt><dd><ul>
+<li><p>fuzzAttributes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>可以看到，正和之前文章讲述的原因，nduja的fuzz逻辑是比较复杂的，而其fuzz的主要操作是moveIterator，moveTreeWalker。即利用节点间的联系来变换，以期找出漏洞。</p>
+</div>
+<div class="section" id="fileja">
+<h2>6.2.7. fileja<a class="headerlink" href="#fileja" title="Permalink to this headline">¶</a></h2>
+<p>在之前提到了fileja也是基于grinder编写的fuzzer，相对于nduja，在grinder的基础上做了更多的扩展，其流程更复杂</p>
+<p>fileja除了自己编写了testcase之外，也使用了来自于W3C的testcase</p>
+<p>fileja的在函数执行之前，定义了比较多的全局变量和常量，对比较多的html元素进行了fuzz，这样能获得的crash也会比较多，定义的主要的值有下面这些</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>全局参数</dt><dd><ul>
+<li><p>元素数量</p></li>
+<li><p>Listener数量</p></li>
+<li><p>是否使用svg</p></li>
+<li><p>…</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>全局变量</dt><dd><ul>
+<li><p>websocket</p></li>
+<li><p>xhr</p></li>
+<li><p>…</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>全局常量</dt><dd><ul>
+<li><p>object_blacklist</p></li>
+<li><p>interesting_vals</p></li>
+<li><p>commands</p></li>
+<li><p>events</p></li>
+<li><p>mutationEvents</p></li>
+<li><p>HTMLElements</p></li>
+<li><p>MMLElements</p></li>
+<li><p>SVGElements</p></li>
+<li><p>standardAttributes</p></li>
+<li><p>SVGCommonAttributes</p></li>
+<li><p>SVGAttributes</p></li>
+<li><p>…</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>在定义相关的值之后，进行了fuzz，这里fuzz就更多的针对xhr，websocket和html事件，在fuzzer中各种同步和异步的事件分别触发来进行尝试</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>getList - get test case list from server</dt><dd><ul>
+<li><dl class="simple">
+<dt>buildDocumentTree</dt><dd><ul>
+<li><dl class="simple">
+<dt>random</dt><dd><ul>
+<li><p>buildFromFile</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>go</dt><dd><ul>
+<li><p>buildDOM</p></li>
+<li><dl class="simple">
+<dt>initFrame</dt><dd><ul>
+<li><p>initF =&gt; create meta, add script</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>initXhr =&gt; add random listener to xhr</p></li>
+<li><p>initWs =&gt; add listener to xhr</p></li>
+<li><p>initXhrJS =&gt; add random listener to xhr</p></li>
+<li><dl class="simple">
+<dt>createSupportStructures</dt><dd><ul>
+<li><p>createNodeIterator</p></li>
+<li><p>createTreeWalker</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>createRanges</p></li>
+<li><dl class="simple">
+<dt>cycle</dt><dd><ul>
+<li><p>tick</p></li>
+<li><dl class="simple">
+<dt>startFuzzing</dt><dd><ul>
+<li><p>crawl_properties</p></li>
+<li><p>call_methods</p></li>
+<li><p>mutateDOM</p></li>
+<li><p>CollectGarbage</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>reload</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="afl.html" class="btn btn-neutral float-right" title="6.3. AFL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="implementation.html" class="btn btn-neutral float-left" title="6.1. Fuzzer实现" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, lyle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

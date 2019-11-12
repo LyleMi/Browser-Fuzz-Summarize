@@ -11,6 +11,5 @@
    mitigation
    vultype
    fuzz
-   tool
-   grinder
+   fuzzers/index
    ref

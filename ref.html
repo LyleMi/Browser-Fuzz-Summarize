@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. 参考资料 &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>7. 参考资料 &mdash; browser_fuzz_summarize 1.0 documentation</title>
   
 
   
@@ -17,34 +17,35 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="7. Grinder" href="grinder.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="prev" title="6.3. AFL" href="fuzzers/afl.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -89,14 +90,13 @@
 <li class="toctree-l1"><a class="reference internal" href="mitigation.html">3. 浏览器防护措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vultype.html">4. 浏览器漏洞类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fuzz.html">5. Fuzz方法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tool.html">6. Fuzz实现</a></li>
-<li class="toctree-l1"><a class="reference internal" href="grinder.html">7. Grinder</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8. 参考资料</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">8.1. 参考文献</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">8.2. 工具</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#blog-or-talks">8.3. Blog or Talks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">8.4. 漏洞相关</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">8.5. 规范 / 手册</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzers/index.html">6. Fuzzers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. 参考资料</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">7.1. 参考文献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">7.2. 工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blog-or-talks">7.3. Blog or Talks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">7.4. 漏洞相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">7.5. 规范 / 手册</a></li>
 </ul>
 </li>
 </ul>
@@ -144,7 +144,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>8. 参考资料</li>
+      <li>7. 参考资料</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,100 +164,116 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>8. 参考资料<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>7. 参考资料<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>8.1. 参考文献<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. 参考文献<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2016</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Lin Y D, Liao F Z, Huang S K, et al. Browser fuzzing by scheduled mutation and generation of document object models[C]// International Carnahan Conference on Security Technology. IEEE, 2016:1-6.</li>
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2012</span></code> <code class="docutils literal notranslate"><span class="pre">White</span> <span class="pre">Box</span></code> Huang S K, Huang M H, Huang P Y, et al. CRAX: Software Crash Analysis for Automatic Exploit Generation by Modeling Attacks as Symbolic Continuations[C]// IEEE Sixth International Conference on Software Security and Reliability. IEEE, 2012:78-87.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2014</span></code> <code class="docutils literal notranslate"><span class="pre">Seed</span> <span class="pre">Generation</span></code> Rebert A, Sang K C, Grieco G, et al. Optimizing seed selection for fuzzing[C]// Usenix Conference on Security Symposium. USENIX Association, 2014:861-875.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Woo M, Sang K C, Gottlieb S, et al. Scheduling black-box mutational fuzzing[C]// ACM Sigsac Conference on Computer &amp; Communications Security. ACM, 2013:511-522.</li>
-<li>钱文祥. 白帽子讲浏览器安全[M]. 电子工业出版社, 2016.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> Paige M. The tangled web: a guide to securing modern web applications by Michal Zalewski[M]. ACM, 2013.</li>
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Guo T, Zhang P, Wang X, et al. GramFuzz: Fuzzing testing of web browsers based on grammar analysis and structural mutation[C]// Second International Conference on Informatics and Applications. IEEE, 2013:212-215.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">White</span> <span class="pre">Box</span></code> Avgerinos T, Sang K C, Rebert A, et al. Automatic exploit generation[J]. Communications of the Acm, 2014, 57(2):74-84.</li>
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2010</span></code> <code class="docutils literal notranslate"><span class="pre">Symbolic</span> <span class="pre">Execution</span></code> Schwartz E J, Avgerinos T, Brumley D. All You Ever Wanted to Know about Dynamic Taint Analysis and Forward Symbolic Execution (but Might Have Been Afraid to Ask)[C]// Security and Privacy. IEEE, 2010:317-331.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Symbolic</span> <span class="pre">Execution</span></code> Cadar C, Sen K. Symbolic execution for software testing: three decades later[J]. Communications of the Acm, 2013, 56(2):82-90.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Fuzz</span> <span class="pre">PNG</span></code> Miller C, Peterson Z N J. Analysis of mutation and generation-based fuzzing[J]. Independent Security Evaluators, Tech. Rep, 2007.</li>
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2005</span></code> Oehlert P. Violating Assumptions with Fuzzing[J]. IEEE Security &amp; Privacy, 2005, 3(2):58-62.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2012</span></code> Holler C, Herzig K, Zeller A. Fuzzing with Code Fragments[J]. Proc Usenix Security, 2012:445–458.</li>
-<li><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">CCIS2012</span></code> <code class="docutils literal notranslate"><span class="pre">Fuzz</span> <span class="pre">BMP</span></code> Hou Y, Tao G, Shi Z, et al. Research on Android browser fuzzing based on bitmap structure[M]. 2013.</li>
-<li><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2017</span></code> Guo R. MongoDB’s JavaScript Fuzzer[M]. ACM, 2017.</li>
-<li><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2018</span></code> Yun I, Lee S, Xu M, et al. QSYM: A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing[C]//27th USENIX Security Symposium (USENIX Security 18). USENIX Association, 2018.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2016</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Lin Y D, Liao F Z, Huang S K, et al. Browser fuzzing by scheduled mutation and generation of document object models[C]// International Carnahan Conference on Security Technology. IEEE, 2016:1-6.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2012</span></code> <code class="docutils literal notranslate"><span class="pre">White</span> <span class="pre">Box</span></code> Huang S K, Huang M H, Huang P Y, et al. CRAX: Software Crash Analysis for Automatic Exploit Generation by Modeling Attacks as Symbolic Continuations[C]// IEEE Sixth International Conference on Software Security and Reliability. IEEE, 2012:78-87.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2014</span></code> <code class="docutils literal notranslate"><span class="pre">Seed</span> <span class="pre">Generation</span></code> Rebert A, Sang K C, Grieco G, et al. Optimizing seed selection for fuzzing[C]// Usenix Conference on Security Symposium. USENIX Association, 2014:861-875.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Woo M, Sang K C, Gottlieb S, et al. Scheduling black-box mutational fuzzing[C]// ACM Sigsac Conference on Computer &amp; Communications Security. ACM, 2013:511-522.</p></li>
+<li><p>钱文祥. 白帽子讲浏览器安全[M]. 电子工业出版社, 2016.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> Paige M. The tangled web: a guide to securing modern web applications by Michal Zalewski[M]. ACM, 2013.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Black</span> <span class="pre">Box</span></code> Guo T, Zhang P, Wang X, et al. GramFuzz: Fuzzing testing of web browsers based on grammar analysis and structural mutation[C]// Second International Conference on Informatics and Applications. IEEE, 2013:212-215.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">White</span> <span class="pre">Box</span></code> Avgerinos T, Sang K C, Rebert A, et al. Automatic exploit generation[J]. Communications of the Acm, 2014, 57(2):74-84.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2010</span></code> <code class="docutils literal notranslate"><span class="pre">Symbolic</span> <span class="pre">Execution</span></code> Schwartz E J, Avgerinos T, Brumley D. All You Ever Wanted to Know about Dynamic Taint Analysis and Forward Symbolic Execution (but Might Have Been Afraid to Ask)[C]// Security and Privacy. IEEE, 2010:317-331.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2013</span></code> <code class="docutils literal notranslate"><span class="pre">Symbolic</span> <span class="pre">Execution</span></code> Cadar C, Sen K. Symbolic execution for software testing: three decades later[J]. Communications of the Acm, 2013, 56(2):82-90.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Fuzz</span> <span class="pre">PNG</span></code> Miller C, Peterson Z N J. Analysis of mutation and generation-based fuzzing[J]. Independent Security Evaluators, Tech. Rep, 2007.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">2005</span></code> Oehlert P. Violating Assumptions with Fuzzing[J]. IEEE Security &amp; Privacy, 2005, 3(2):58-62.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2012</span></code> Holler C, Herzig K, Zeller A. Fuzzing with Code Fragments[J]. Proc Usenix Security, 2012:445–458.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IEEE</span> <span class="pre">CCIS2012</span></code> <code class="docutils literal notranslate"><span class="pre">Fuzz</span> <span class="pre">BMP</span></code> Hou Y, Tao G, Shi Z, et al. Research on Android browser fuzzing based on bitmap structure[M]. 2013.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ACM</span> <span class="pre">2017</span></code> Guo R. MongoDB’s JavaScript Fuzzer[M]. ACM, 2017.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Usenix</span> <span class="pre">2018</span></code> Yun I, Lee S, Xu M, et al. QSYM: A Practical Concolic Execution Engine Tailored for Hybrid Fuzzing[C]//27th USENIX Security Symposium (USENIX Security 18). USENIX Association, 2018.</p></li>
 </ol>
 </div>
 <div class="section" id="id3">
-<h2>8.2. 工具<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. 工具<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="http://caca.zoy.org/wiki/zzuf">zuff fuzzer</a></li>
-<li><a class="reference external" href="https://insights.sei.cmu.edu/cert/2010/05/cert-basic-fuzzing-framework.html">CERT Basic Fuzzing</a></li>
-<li><a class="reference external" href="http://www.cert.org/vulnerability-analysis/tools/foe.cfm">CERT Failure Observation Engine</a></li>
-<li><a class="reference external" href="https://www.aldeid.com/wiki/Bf3">bf3</a></li>
-<li><a class="reference external" href="https://github.com/stephenfewer/grinder">Grinder</a></li>
-<li><a class="reference external" href="https://github.com/hdm/axman">axman</a></li>
-<li><a class="reference external" href="https://msecdbg.codeplex.com/">exploitable</a></li>
-<li><a class="reference external" href="https://github.com/MozillaSecurity/funfuzz">jsfunfuzz</a></li>
-<li><a class="reference external" href="https://github.com/jjyg/metasm/">metasm</a></li>
-<li><a class="reference external" href="https://github.com/w3c/web-platform-tests">web platform tests</a></li>
-<li><a class="reference external" href="https://github.com/google/oss-fuzz">oss fuzz</a></li>
-<li><a class="reference external" href="https://github.com/googleprojectzero/domato">Domato</a></li>
-<li><a class="reference external" href="https://github.com/fishstiqz/mitigationview">mitigationview</a></li>
-<li><a class="reference external" href="https://github.com/google/sandbox-attacksurface-analysis-tools">sandbox attacksurface analysis tools</a></li>
+<li><p><a class="reference external" href="http://caca.zoy.org/wiki/zzuf">zuff fuzzer</a></p></li>
+<li><p><a class="reference external" href="https://insights.sei.cmu.edu/cert/2010/05/cert-basic-fuzzing-framework.html">CERT Basic Fuzzing</a></p></li>
+<li><p><a class="reference external" href="http://www.cert.org/vulnerability-analysis/tools/foe.cfm">CERT Failure Observation Engine</a></p></li>
+<li><p><a class="reference external" href="https://www.aldeid.com/wiki/Bf3">bf3</a></p></li>
+<li><p><a class="reference external" href="https://github.com/stephenfewer/grinder">Grinder</a></p></li>
+<li><p><a class="reference external" href="https://github.com/hdm/axman">axman</a></p></li>
+<li><p><a class="reference external" href="https://msecdbg.codeplex.com/">exploitable</a></p></li>
+<li><p><a class="reference external" href="https://github.com/MozillaSecurity/funfuzz">jsfunfuzz</a></p></li>
+<li><p><a class="reference external" href="https://github.com/jjyg/metasm/">metasm</a></p></li>
+<li><p><a class="reference external" href="https://github.com/w3c/web-platform-tests">web platform tests</a></p></li>
+<li><p><a class="reference external" href="https://github.com/google/oss-fuzz">oss fuzz</a></p></li>
+<li><p><a class="reference external" href="https://github.com/googleprojectzero/domato">Domato</a></p></li>
+<li><p><a class="reference external" href="https://github.com/fishstiqz/mitigationview">mitigationview</a></p></li>
+<li><p><a class="reference external" href="https://github.com/google/sandbox-attacksurface-analysis-tools">sandbox attacksurface analysis tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/attekett/NodeFuzz">NodeFuzz</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sensepost/wadi">wadi</a></p></li>
+<li><p><a class="reference external" href="https://github.com/AngoraFuzzer/Angora">Angora</a></p></li>
+<li><p><a class="reference external" href="http://lcamtuf.coredump.cx/afl/">afl</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Dongdongshe/neuzz">neuzz</a></p></li>
 </ol>
 </div>
 <div class="section" id="blog-or-talks">
-<h2>8.3. Blog or Talks<a class="headerlink" href="#blog-or-talks" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Blog or Talks<a class="headerlink" href="#blog-or-talks" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="http://www.freebuf.com/sectool/93130.html">浏览器fuzz工具</a></li>
-<li><a class="reference external" href="http://blog.nsfocus.net/web-browser-fuzzing/">浏览器fuzz框架</a></li>
-<li><a class="reference external" href="http://www.freebuf.com/articles/web/105510.html">nduja</a></li>
-<li><a class="reference external" href="http://www.freebuf.com/sectool/89001.html">Morph</a></li>
-<li><a class="reference external" href="https://sites.google.com/site/tentacoloviola/">R Valotta</a></li>
-<li><a class="reference external" href="https://zhuanlan.zhihu.com/p/26927127">符号执行入门</a></li>
-<li><a class="reference external" href="http://blog.blueclosure.com/">blueclosure blog</a></li>
-<li><a class="reference external" href="https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos">MongoDBs fuzzer</a></li>
-<li><a class="reference external" href="https://mathiasbynens.be/notes/prototypes">JavaScript engine fundamentals optimizing prototypes</a></li>
-<li><a class="reference external" href="http://www.starming.com/2017/10/11/deeply-analyse-webkit/">深入理解Webkit</a></li>
-<li><a class="reference external" href="https://en.wikipedia.org/wiki/Timeline_of_web_browsers">Timeline of Web Browsers</a></li>
-<li><a class="reference external" href="https://xlab.tencent.com/cn/2017/10/16/browser-ui-security-whitepaper/">Browser UI Security</a></li>
-<li><a class="reference external" href="http://bit.ly/lifeofapixel">life of a pixel</a></li>
-<li><a class="reference external" href="http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf">Inline Caching in JavaScriptCore</a></li>
-<li><a class="reference external" href="https://heycam.github.io/webidl/">webidl</a></li>
-<li><a class="reference external" href="https://googleprojectzero.blogspot.com/2017/09/the-great-dom-fuzz-off-of-2017.html">The Great DOM Fuzz-off of 2017</a></li>
-<li><a class="reference external" href="https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html">Finding and Exploiting Safari Bugs using Publicly Available Tools</a></li>
-<li><a class="reference external" href="https://github.com/WebAssembly/wabt">wabt</a></li>
-<li><a class="reference external" href="https://github.com/tc39/ecma262">ecma262</a></li>
-<li><a class="reference external" href="https://blogs.windows.com/msedgedev/2017/03/23/strengthening-microsoft-edge-sandbox/">strengthening microsoft edge sandbox</a></li>
-<li><a class="reference external" href="https://authentic8.blog/breaking-the-local-browser-sandbox-1/">breaking the local browser sandbox</a></li>
-<li><a class="reference external" href="https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf">Forshaw Digging For IE11 Sandbox Escapes</a></li>
+<li><p><a class="reference external" href="http://www.freebuf.com/sectool/93130.html">浏览器fuzz工具</a></p></li>
+<li><p><a class="reference external" href="http://blog.nsfocus.net/web-browser-fuzzing/">浏览器fuzz框架</a></p></li>
+<li><p><a class="reference external" href="http://www.freebuf.com/articles/web/105510.html">nduja</a></p></li>
+<li><p><a class="reference external" href="http://www.freebuf.com/sectool/89001.html">Morph</a></p></li>
+<li><p><a class="reference external" href="https://sites.google.com/site/tentacoloviola/">R Valotta</a></p></li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/26927127">符号执行入门</a></p></li>
+<li><p><a class="reference external" href="http://blog.blueclosure.com/">blueclosure blog</a></p></li>
+<li><p><a class="reference external" href="https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos">MongoDBs fuzzer</a></p></li>
+<li><p><a class="reference external" href="https://mathiasbynens.be/notes/prototypes">JavaScript engine fundamentals optimizing prototypes</a></p></li>
+<li><p><a class="reference external" href="http://www.starming.com/2017/10/11/deeply-analyse-webkit/">深入理解Webkit</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Timeline_of_web_browsers">Timeline of Web Browsers</a></p></li>
+<li><p><a class="reference external" href="https://xlab.tencent.com/cn/2017/10/16/browser-ui-security-whitepaper/">Browser UI Security</a></p></li>
+<li><p><a class="reference external" href="http://bit.ly/lifeofapixel">life of a pixel</a></p></li>
+<li><p><a class="reference external" href="http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf">Inline Caching in JavaScriptCore</a></p></li>
+<li><p><a class="reference external" href="https://heycam.github.io/webidl/">webidl</a></p></li>
+<li><p><a class="reference external" href="https://googleprojectzero.blogspot.com/2017/09/the-great-dom-fuzz-off-of-2017.html">The Great DOM Fuzz-off of 2017</a></p></li>
+<li><p><a class="reference external" href="https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html">Finding and Exploiting Safari Bugs using Publicly Available Tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/WebAssembly/wabt">wabt</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tc39/ecma262">ecma262</a></p></li>
+<li><p><a class="reference external" href="https://blogs.windows.com/msedgedev/2017/03/23/strengthening-microsoft-edge-sandbox/">strengthening microsoft edge sandbox</a></p></li>
+<li><p><a class="reference external" href="https://authentic8.blog/breaking-the-local-browser-sandbox-1/">breaking the local browser sandbox</a></p></li>
+<li><p><a class="reference external" href="https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf">Forshaw Digging For IE11 Sandbox Escapes</a></p></li>
+<li><p><a class="reference external" href="https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html">digging into turbofan jit</a></p></li>
+<li><p><a class="reference external" href="https://v8project.blogspot.com/2018/08/liftoff.html">liftoff</a></p></li>
+<li><p><a class="reference external" href="https://lcamtuf.blogspot.com/2014/10/fuzzing-binaries-without-execve.html">fuzzing binaries without execve</a></p></li>
+<li><p><a class="reference external" href="https://www.fuzzingbook.org/">fuzzingbook</a></p></li>
 </ol>
 </div>
 <div class="section" id="id6">
-<h2>8.4. 漏洞相关<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>7.4. 漏洞相关<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/tunz/js-vuln-db">js-vuln</a></li>
-<li><a class="reference external" href="https://github.com/wzw19890321/Exploits">cve-2018-4192 and cve-2018-4262</a></li>
-<li><a class="reference external" href="https://github.com/theori-io/cve-2016-0189">cve-2016-0189</a></li>
-<li><a class="reference external" href="https://github.com/mwrlabs/CVE-2018-4121">CVE-2018-4121 Safari Wasm Exploit</a></li>
-<li><a class="reference external" href="https://www.zerodayinitiative.com/blog/2017/10/5/check-it-out-enforcement-of-bounds-checks-in-native-jit-code">Enforcement of Bounds Checks in Native JIT Code</a></li>
-<li><a class="reference external" href="https://github.com/mrowensnobody/presentation/blob/master/The%20Advanced%20Exploitation%20of%2064-bit%20Edge%20Browser%20Use-After-Free%20Vulnerability%20on%20Windows%2010.pdf">The Advanced Exploitation of 64-bit Edge Browser Use-After-Free Vulnerability on Windows 10</a></li>
-<li><a class="reference external" href="https://gsec.hitb.org/materials/sg2018/D1%20-%20Turning%20Memory%20Errors%20into%20Code%20Execution%20with%20Client-Side%20Compilers%20-%20Robert%20Gawlik.pdf">From Assembly to JavaScript and Back</a></li>
-<li><a class="reference external" href="https://github.com/Escapingbug/awesome-browser-exploit">awesome browser exploit</a></li>
-<li><a class="reference external" href="https://github.com/theori-io/pwnjs">pwnjs</a></li>
-<li><a class="reference external" href="https://leucosite.com/Microsoft-Edge-RCE/">Write-up for CVE-2018-8495</a></li>
-<li><a class="reference external" href="https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf">blackhat us 18 attacking client side jit compilers</a></li>
-<li><a class="reference external" href="https://leucosite.com/WebExtension-Security/">WebExtension security Part1</a></li>
+<li><p><a class="reference external" href="https://github.com/tunz/js-vuln-db">js-vuln</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wzw19890321/Exploits">cve-2018-4192 and cve-2018-4262</a></p></li>
+<li><p><a class="reference external" href="https://github.com/theori-io/cve-2016-0189">cve-2016-0189</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mwrlabs/CVE-2018-4121">CVE-2018-4121 Safari Wasm Exploit</a></p></li>
+<li><p><a class="reference external" href="https://www.zerodayinitiative.com/blog/2017/10/5/check-it-out-enforcement-of-bounds-checks-in-native-jit-code">Enforcement of Bounds Checks in Native JIT Code</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mrowensnobody/presentation/blob/master/The%20Advanced%20Exploitation%20of%2064-bit%20Edge%20Browser%20Use-After-Free%20Vulnerability%20on%20Windows%2010.pdf">The Advanced Exploitation of 64-bit Edge Browser Use-After-Free Vulnerability on Windows 10</a></p></li>
+<li><p><a class="reference external" href="https://gsec.hitb.org/materials/sg2018/D1%20-%20Turning%20Memory%20Errors%20into%20Code%20Execution%20with%20Client-Side%20Compilers%20-%20Robert%20Gawlik.pdf">From Assembly to JavaScript and Back</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Escapingbug/awesome-browser-exploit">awesome browser exploit</a></p></li>
+<li><p><a class="reference external" href="https://github.com/theori-io/pwnjs">pwnjs</a></p></li>
+<li><p><a class="reference external" href="https://leucosite.com/Microsoft-Edge-RCE/">Write-up for CVE-2018-8495</a></p></li>
+<li><p><a class="reference external" href="https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf">blackhat us 18 attacking client side jit compilers</a></p></li>
+<li><p><a class="reference external" href="https://leucosite.com/WebExtension-Security/">WebExtension security Part1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/phoenhex/files/blob/master/pocs/cve-2018-8629-chakra.js">cve-2018-8629</a></p></li>
+<li><p><a class="reference external" href="https://doar-e.github.io/blog/2018/11/19/introduction-to-spidermonkey-exploitation/">Introduction to SpiderMonkey exploitation</a></p></li>
+<li><p><a class="reference external" href="https://bugmap.gitlab.io/webkit/">webkit bugmap</a></p></li>
 </ol>
 </div>
 <div class="section" id="id7">
-<h2>8.5. 规范 / 手册<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>7.5. 规范 / 手册<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://www.w3.org/standards/">wc3规范</a></li>
-<li><a class="reference external" href="https://html.spec.whatwg.org/">whatwg</a></li>
-<li><a class="reference external" href="https://developer.mozilla.org">MDN</a></li>
-<li><a class="reference external" href="https://firefox-source-docs.mozilla.org/">Mozilla Source Tree Documentation</a></li>
-<li><a class="reference external" href="https://github.com/whatwg/html">HTML Standard by whatwg</a></li>
-<li><a class="reference external" href="https://v8.dev/docs">V8 Documentation</a></li>
+<li><p><a class="reference external" href="https://www.w3.org/standards/">wc3规范</a></p></li>
+<li><p><a class="reference external" href="https://html.spec.whatwg.org/">whatwg</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org">MDN</a></p></li>
+<li><p><a class="reference external" href="https://firefox-source-docs.mozilla.org/">Mozilla Source Tree Documentation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/whatwg/html">HTML Standard by whatwg</a></p></li>
+<li><p><a class="reference external" href="https://v8.dev/docs">V8 Documentation</a></p></li>
+<li><p><a class="reference external" href="https://chromium.googlesource.com/chromium/src/+/master/docs/">chromium documents</a></p></li>
+<li><p><a class="reference external" href="https://www.chromium.org/developers/design-documents">chromium design documents</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t">V8 Ignition online doc</a></p></li>
+<li><p><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a></p></li>
 </ol>
 </div>
 </div>
@@ -271,7 +287,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="grinder.html" class="btn btn-neutral" title="7. Grinder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="fuzzers/afl.html" class="btn btn-neutral float-left" title="6.3. AFL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -280,7 +296,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle.
+        &copy; Copyright 2017, lyle
 
     </p>
   </div>
@@ -297,37 +313,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

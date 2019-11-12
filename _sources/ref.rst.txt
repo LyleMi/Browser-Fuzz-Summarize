@@ -65,6 +65,16 @@
 
 14. `sandbox attacksurface analysis tools <https://github.com/google/sandbox-attacksurface-analysis-tools>`_
 
+15. `NodeFuzz <https://github.com/attekett/NodeFuzz>`_
+
+16. `wadi <https://github.com/sensepost/wadi>`_
+
+17. `Angora <https://github.com/AngoraFuzzer/Angora>`_
+
+18. `afl <http://lcamtuf.coredump.cx/afl/>`_
+
+19. `neuzz <https://github.com/Dongdongshe/neuzz>`_
+
 Blog or Talks
 --------------------------------------------------
 1. `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
@@ -111,6 +121,14 @@ Blog or Talks
 
 22. `Forshaw Digging For IE11 Sandbox Escapes <https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf>`_
 
+23. `digging into turbofan jit <https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html>`_
+
+24. `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
+
+25. `fuzzing binaries without execve <https://lcamtuf.blogspot.com/2014/10/fuzzing-binaries-without-execve.html>`_
+
+26. `fuzzingbook <https://www.fuzzingbook.org/>`_
+
 漏洞相关
 --------------------------------------------------
 1. `js-vuln <https://github.com/tunz/js-vuln-db>`_
@@ -137,6 +155,12 @@ Blog or Talks
 
 12. `WebExtension security Part1 <https://leucosite.com/WebExtension-Security/>`_
 
+13. `cve-2018-8629 <https://github.com/phoenhex/files/blob/master/pocs/cve-2018-8629-chakra.js>`_
+
+14. `Introduction to SpiderMonkey exploitation <https://doar-e.github.io/blog/2018/11/19/introduction-to-spidermonkey-exploitation/>`_
+
+15. `webkit bugmap <https://bugmap.gitlab.io/webkit/>`_
+
 规范 / 手册
 --------------------------------------------------
 1. `wc3规范 <https://www.w3.org/standards/>`_
@@ -150,3 +174,11 @@ Blog or Talks
 5. `HTML Standard by whatwg <https://github.com/whatwg/html>`_
 
 6. `V8 Documentation <https://v8.dev/docs>`_
+
+7. `chromium documents <https://chromium.googlesource.com/chromium/src/+/master/docs/>`_
+
+8. `chromium design documents <https://www.chromium.org/developers/design-documents>`_
+
+9. `V8 Ignition online doc <https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t>`_
+
+10. `SpiderMonkey <https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey>`_

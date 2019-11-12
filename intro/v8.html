@@ -17,35 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.7. ChakraCore" href="chakra.html" />
     <link rel="prev" title="1.5. Edge" href="edge.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -92,7 +93,12 @@
 <li class="toctree-l2"><a class="reference internal" href="webkit.html">1.4. Webkit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="edge.html">1.5. Edge</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.6. V8</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">1.6.1. 编译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.6.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.6.2. 代码结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#turbofan">1.6.3. TurboFan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ignition">1.6.4. Ignition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.6.5. 垃圾回收</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.6.6. 编译</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="chakra.html">1.7. ChakraCore</a></li>
@@ -104,9 +110,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../mitigation.html">3. 浏览器防护措施</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vultype.html">4. 浏览器漏洞类型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fuzz.html">5. Fuzz方法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tool.html">6. Fuzz实现</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../grinder.html">7. Grinder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ref.html">8. 参考资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">6. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref.html">7. 参考资料</a></li>
 </ul>
 
             
@@ -176,7 +181,46 @@
   <div class="section" id="v8">
 <h1>1.6. V8<a class="headerlink" href="#v8" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>1.6.1. 编译<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>V8是一个JavaScript引擎的实现，使用C++开发。在运行JavaScript之前，V8将其编译成原生机器码，并且使用了内联缓存（inline caching）等方法来提高性能。</p>
+</div>
+<div class="section" id="id2">
+<h2>1.6.2. 代码结构<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>include // v8接口</p></li>
+<li><dl class="simple">
+<dt>src // v8内部实现</dt><dd><ul>
+<li><p>arm // arm后端，将抽象语法树转换为arm指令</p></li>
+<li><p>ia32 // ia32后端，将抽象语法树转换为ia32指令</p></li>
+<li><p>x86 // x86后端，将抽象语法树转换为x86指令</p></li>
+<li><p>ast // 抽象语法树的实现</p></li>
+<li><p>d8.cc // v8的调试程序</p></li>
+<li><p>heap // 堆实现</p></li>
+<li><p>extension // v8的扩展机制</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>benchmark // 性能测试用例</p></li>
+<li><p>build // 编译相关脚本</p></li>
+</ul>
+</div>
+<div class="section" id="turbofan">
+<h2>1.6.3. TurboFan<a class="headerlink" href="#turbofan" title="Permalink to this headline">¶</a></h2>
+<p>TurboFan是一个包含优化过程的编译器。</p>
+</div>
+<div class="section" id="ignition">
+<h2>1.6.4. Ignition<a class="headerlink" href="#ignition" title="Permalink to this headline">¶</a></h2>
+<p>Ignition 是一个解释器。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.6.5. 垃圾回收<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>V8的垃圾回收机制分为新生代和老生代。</p>
+<p>新生代主要使用Scavenge进行管理，主要实现是Cheney算法，将内存平均分为两块，使用空间叫From，闲置空间叫To，新对象都先分配到From空间中，在空间快要占满时将存活对象复制到To空间中，然后清空From的内存空间，此时，调换From空间和To空间，继续进行内存分配，当满足那两个条件时对象会从新生代晋升到老生代。</p>
+<p>老生代主要采用Mark-Sweep和Mark-Compact算法，一个是标记清除，一个是标记整理。两者不同的地方是，Mark-Sweep在垃圾回收后会产生碎片内存，而Mark-Compact在清除前会进行一步整理，将存活对象向一侧移动，随后清空边界的另一侧内存，这样空闲的内存都是连续的，但是带来的问题就是速度会慢一些。在V8中，老生代是Mark-Sweep和Mark-Compact两者共同进行管理的。</p>
+</div>
+<div class="section" id="id4">
+<h2>1.6.6. 编译<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">chromium</span><span class="o">.</span><span class="n">googlesource</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">chromium</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">depot_tools</span><span class="o">.</span><span class="n">git</span>
 <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:/path/to/depot_tools&quot;</span>
 <span class="n">mkdir</span> <span class="o">~/</span><span class="n">v8</span>
@@ -201,7 +245,7 @@
         <a href="chakra.html" class="btn btn-neutral float-right" title="1.7. ChakraCore" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="edge.html" class="btn btn-neutral" title="1.5. Edge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="edge.html" class="btn btn-neutral float-left" title="1.5. Edge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -210,7 +254,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle.
+        &copy; Copyright 2017, lyle
 
     </p>
   </div>
@@ -227,37 +271,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.0',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
