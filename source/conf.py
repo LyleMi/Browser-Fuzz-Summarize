@@ -45,8 +45,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'browser_fuzz_summarize'
-copyright = u'2017, lyle'
+project = u'浏览器模糊测试综述'
+copyright = u'2017-2020, lyle'
 author = u'lyle'
 
 # The version info for the project you're documenting, acts as replacement for

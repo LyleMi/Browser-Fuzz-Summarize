@@ -4,9 +4,10 @@
 .. toctree::
    :numbered:
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 内容索引:
 
    intro/index
+   browsers/index
    papers/index
    mitigation
    vultype
