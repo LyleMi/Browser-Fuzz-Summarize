@@ -1,0 +1,21 @@
+工具
+================================
+- `zuff fuzzer <http://caca.zoy.org/wiki/zzuf>`_
+- `CERT Basic Fuzzing <https://insights.sei.cmu.edu/cert/2010/05/cert-basic-fuzzing-framework.html>`_
+- `CERT Failure Observation Engine <http://www.cert.org/vulnerability-analysis/tools/foe.cfm>`_
+- `bf3 <https://www.aldeid.com/wiki/Bf3>`_
+- `Grinder <https://github.com/stephenfewer/grinder>`_
+- `axman <https://github.com/hdm/axman>`_
+- `exploitable <https://msecdbg.codeplex.com/>`_
+- `jsfunfuzz <https://github.com/MozillaSecurity/funfuzz>`_
+- `metasm <https://github.com/jjyg/metasm/>`_
+- `web platform tests <https://github.com/w3c/web-platform-tests>`_
+- `oss fuzz <https://github.com/google/oss-fuzz>`_
+- `Domato <https://github.com/googleprojectzero/domato>`_
+- `mitigationview <https://github.com/fishstiqz/mitigationview>`_
+- `sandbox attacksurface analysis tools <https://github.com/google/sandbox-attacksurface-analysis-tools>`_
+- `NodeFuzz <https://github.com/attekett/NodeFuzz>`_
+- `wadi <https://github.com/sensepost/wadi>`_
+- `Angora <https://github.com/AngoraFuzzer/Angora>`_
+- `afl <http://lcamtuf.coredump.cx/afl/>`_
+- `neuzz <https://github.com/Dongdongshe/neuzz>`_

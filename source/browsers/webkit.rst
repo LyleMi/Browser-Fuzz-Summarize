@@ -28,3 +28,7 @@ LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开�
     ./Tools/Scripts/build-webkit --release --gtk --cmakeargs=-DCMAKE_CXX_FLAGS="-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++"
     add-apt-repository ppa:alexlarsson/flatpak
     ./Tools/Scripts/run-minibrowser --gtk
+
+参考链接
+--------------------------------
+- `WEBKIT渲染不可不知的这四棵树 <https://mp.weixin.qq.com/s?__biz=MzI0ODA2ODU2NQ==&mid=2651130703&idx=1&sn=3a1aa8a892a1fd1e03a0fa45f25b05ef>`_

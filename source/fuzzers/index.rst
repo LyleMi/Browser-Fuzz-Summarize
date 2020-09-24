@@ -8,3 +8,4 @@ Fuzzers
    implementation
    grinder
    afl
+   jsfunfuzz

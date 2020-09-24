@@ -9,8 +9,6 @@
    intro/index
    browsers/index
    papers/index
-   mitigation
-   vultype
    fuzz
    fuzzers/index
-   ref
+   ref/index

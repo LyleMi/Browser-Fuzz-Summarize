@@ -1,0 +1,30 @@
+Blog or Talks
+================================
+- `浏览器fuzz工具 <http://www.freebuf.com/sectool/93130.html>`_
+- `浏览器fuzz框架 <http://blog.nsfocus.net/web-browser-fuzzing/>`_
+- `nduja <http://www.freebuf.com/articles/web/105510.html>`_
+- `Morph <http://www.freebuf.com/sectool/89001.html>`_
+- `R Valotta <https://sites.google.com/site/tentacoloviola/>`_
+- `符号执行入门 <https://zhuanlan.zhihu.com/p/26927127>`_
+- `blueclosure blog <http://blog.blueclosure.com/>`_
+- `MongoDBs fuzzer <https://engineering.mongodb.com/post/mongodbs-javascript-fuzzer-creating-chaos>`_
+- `JavaScript engine fundamentals optimizing prototypes <https://mathiasbynens.be/notes/prototypes>`_
+- `深入理解Webkit <http://www.starming.com/2017/10/11/deeply-analyse-webkit/>`_
+- `Timeline of Web Browsers <https://en.wikipedia.org/wiki/Timeline_of_web_browsers>`_
+- `Browser UI Security <https://xlab.tencent.com/cn/2017/10/16/browser-ui-security-whitepaper/>`_
+- `life of a pixel <http://bit.ly/lifeofapixel>`_
+- `Inline Caching in JavaScriptCore <http://www.filpizlo.com/slides/pizlo-icooolps2018-inline-caches-slides.pdf>`_
+- `webidl <https://heycam.github.io/webidl/>`_
+- `The Great DOM Fuzz-off of 2017 <https://googleprojectzero.blogspot.com/2017/09/the-great-dom-fuzz-off-of-2017.html>`_
+- `Finding and Exploiting Safari Bugs using Publicly Available Tools <https://googleprojectzero.blogspot.com/2018/10/365-days-later-finding-and-exploiting.html>`_
+- `wabt <https://github.com/WebAssembly/wabt>`_
+- `ecma262 <https://github.com/tc39/ecma262>`_
+- `strengthening microsoft edge sandbox <https://blogs.windows.com/msedgedev/2017/03/23/strengthening-microsoft-edge-sandbox/>`_
+- `breaking the local browser sandbox <https://authentic8.blog/breaking-the-local-browser-sandbox-1/>`_
+- `Forshaw Digging For IE11 Sandbox Escapes <https://www.blackhat.com/docs/us-14/materials/us-14-Forshaw-Digging-For_IE11-Sandbox-Escapes.pdf>`_
+- `digging into turbofan jit <https://v8project.blogspot.de/2015/07/digging-into-turbofan-jit.html>`_
+- `liftoff <https://v8project.blogspot.com/2018/08/liftoff.html>`_
+- `fuzzing binaries without execve <https://lcamtuf.blogspot.com/2014/10/fuzzing-binaries-without-execve.html>`_
+- `fuzzingbook <https://www.fuzzingbook.org/>`_
+- `浏览器的工作原理：新式网络浏览器幕后揭秘 <https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/>`_
+- `黄正 如何用正确姿势挖掘浏览器漏洞 <https://zhuanlan.zhihu.com/p/24846502?utm_source=zhihu&utm_medium=social>`_
