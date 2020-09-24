@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.4. 漏洞相关 &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.5. 规范 / 手册" href="manual.html" />
+    <link rel="prev" title="6.3. Blog or Talks" href="blog.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 浏览器模糊测试综述
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browsers/index.html">2. 浏览器与引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">4. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">5. Fuzzers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">6. 参考资料</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="paper.html">6.1. 参考文献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool.html">6.2. 工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blog.html">6.3. Blog or Talks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.4. 漏洞相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html">6.5. 规范 / 手册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources.html">6.6. 资源</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">浏览器模糊测试综述</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">6. 参考资料</a> &raquo;</li>
+        
+      <li>6.4. 漏洞相关</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ref/vuln.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>6.4. 漏洞相关<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tunz/js-vuln-db">js-vuln</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wzw19890321/Exploits">cve-2018-4192 and cve-2018-4262</a></p></li>
+<li><p><a class="reference external" href="https://github.com/theori-io/cve-2016-0189">cve-2016-0189</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mwrlabs/CVE-2018-4121">CVE-2018-4121 Safari Wasm Exploit</a></p></li>
+<li><p><a class="reference external" href="https://www.zerodayinitiative.com/blog/2017/10/5/check-it-out-enforcement-of-bounds-checks-in-native-jit-code">Enforcement of Bounds Checks in Native JIT Code</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mrowensnobody/presentation/blob/master/The%20Advanced%20Exploitation%20of%2064-bit%20Edge%20Browser%20Use-After-Free%20Vulnerability%20on%20Windows%2010.pdf">The Advanced Exploitation of 64-bit Edge Browser Use-After-Free Vulnerability on Windows 10</a></p></li>
+<li><p><a class="reference external" href="https://gsec.hitb.org/materials/sg2018/D1%20-%20Turning%20Memory%20Errors%20into%20Code%20Execution%20with%20Client-Side%20Compilers%20-%20Robert%20Gawlik.pdf">From Assembly to JavaScript and Back</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Escapingbug/awesome-browser-exploit">awesome browser exploit</a></p></li>
+<li><p><a class="reference external" href="https://github.com/theori-io/pwnjs">pwnjs</a></p></li>
+<li><p><a class="reference external" href="https://leucosite.com/Microsoft-Edge-RCE/">Write-up for CVE-2018-8495</a></p></li>
+<li><p><a class="reference external" href="https://saelo.github.io/presentations/blackhat_us_18_attacking_client_side_jit_compilers.pdf">blackhat us 18 attacking client side jit compilers</a></p></li>
+<li><p><a class="reference external" href="https://leucosite.com/WebExtension-Security/">WebExtension security Part1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/phoenhex/files/blob/master/pocs/cve-2018-8629-chakra.js">cve-2018-8629</a></p></li>
+<li><p><a class="reference external" href="https://doar-e.github.io/blog/2018/11/19/introduction-to-spidermonkey-exploitation/">Introduction to SpiderMonkey exploitation</a></p></li>
+<li><p><a class="reference external" href="https://bugmap.gitlab.io/webkit/">webkit bugmap</a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="manual.html" class="btn btn-neutral float-right" title="6.5. 规范 / 手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blog.html" class="btn btn-neutral float-left" title="6.3. Blog or Talks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2020, lyle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

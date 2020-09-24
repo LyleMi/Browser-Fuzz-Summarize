@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. 浏览器漏洞类型 &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>5. 浏览器漏洞类型 &mdash; 浏览器模糊测试综述 1.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Fuzz方法" href="fuzz.html" />
-    <link rel="prev" title="3. 浏览器防护措施" href="mitigation.html" /> 
+    <link rel="next" title="6. Fuzz方法" href="fuzz.html" />
+    <link rel="prev" title="4. 浏览器防护措施" href="mitigation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> browser_fuzz_summarize
+            <a href="index.html" class="icon icon-home"> 浏览器模糊测试综述
           
 
           
@@ -87,23 +87,24 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro/index.html">1. 基础知识</a></li>
-<li class="toctree-l1"><a class="reference internal" href="papers/index.html">2. 相关论文</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mitigation.html">3. 浏览器防护措施</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 浏览器漏洞类型</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.1. 简介</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">4.2. 信息泄漏漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">4.3. 内存破坏漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">4.4. 沙箱逃逸漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">4.5. 扩展和插件漏洞</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ui">4.6. UI欺骗</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#uxss">4.7. uXSS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xss-auditor-bypass">4.8. XSS Auditor Bypass</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xss-api">4.9. 特权域 XSS + 特权域 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="browsers/index.html">2. 浏览器与引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mitigation.html">4. 浏览器防护措施</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. 浏览器漏洞类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1. 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.2. 信息泄漏漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">5.3. 内存破坏漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">5.4. 沙箱逃逸漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">5.5. 扩展和插件漏洞</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ui">5.6. UI欺骗</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uxss">5.7. uXSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xss-auditor-bypass">5.8. XSS Auditor Bypass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xss-api">5.9. 特权域 XSS + 特权域 API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fuzz.html">5. Fuzz方法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fuzzers/index.html">6. Fuzzers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ref.html">7. 参考资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzz.html">6. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzers/index.html">7. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref.html">8. 参考资料</a></li>
 </ul>
 
             
@@ -118,7 +119,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">browser_fuzz_summarize</a>
+          <a href="index.html">浏览器模糊测试综述</a>
         
       </nav>
 
@@ -149,7 +150,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. 浏览器漏洞类型</li>
+      <li>5. 浏览器漏洞类型</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,13 +170,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>4. 浏览器漏洞类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>5. 浏览器漏洞类型<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id2">
-<h2>4.1. 简介<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. 简介<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>一般漏洞指通过软件缺陷触发的，会有损完整性、可用性、机密性三者中一项的问题。在浏览器研究中，一般涉及到所有会影响到用户信息安全的问题，例如页面伪造、钓鱼、下载文件病毒检查、广告弹窗、不良内容过滤、用户设置保护等问题。通常可以分为以下几种类型。</p>
 </div>
 <div class="section" id="id3">
-<h2>4.2. 信息泄漏漏洞<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>5.2. 信息泄漏漏洞<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>旧版本的IE浏览器可以用 JS 检测是否存在某文件。这样会泄漏用户是否安装了杀毒软件，以便恶意代码进行下一步操作。</p></li>
 <li><p>有些信息泄漏漏洞会泄漏内存的信息，攻击者可能使用泄漏的信息来绕过操作系统的保护机制，如ASLR、DEP等。</p></li>
@@ -183,31 +184,31 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h2>4.3. 内存破坏漏洞<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>5.3. 内存破坏漏洞<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>内存破坏漏洞又可以细分为释放后重用漏洞（UAF），越界读写漏洞，类型混淆漏洞，其中越界读写漏洞也能用来泄漏内存信息。该类型的漏洞可能由DOM渲染、JavaScript引擎、PDF解析、图片解析、音频解析等多个模块触发。一些复杂的三方库存在的问题也可能导致浏览器被攻破。</p>
 </div>
 <div class="section" id="id5">
-<h2>4.4. 沙箱逃逸漏洞<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>5.4. 沙箱逃逸漏洞<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>为了防止RCE漏洞影响主机，部分浏览器提供了沙箱机制，而一些漏洞可以使得沙箱机制被逃逸。</p>
 </div>
 <div class="section" id="id6">
-<h2>4.5. 扩展和插件漏洞<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>5.5. 扩展和插件漏洞<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>某些浏览器插件或者扩展会存在一些安全问题，如果浏览器没有做好隔离，则可能利用其漏洞对主机进行攻击。</p>
 </div>
 <div class="section" id="ui">
-<h2>4.6. UI欺骗<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h2>
+<h2>5.6. UI欺骗<a class="headerlink" href="#ui" title="Permalink to this headline">¶</a></h2>
 <p>浏览器UI上最容易发生的攻击就是用户界面欺骗，也就是UI Spoof。通常UI Spoof被用来进行网络钓鱼攻击使用。网络钓鱼是社会工程学中用于欺骗用户，进而获取用户的敏感信息的一种攻击手段，通常使用伪造网站等方法，诱使用户从视觉感官上相信其是合法真实的，当用户在浏览器中进行操作后，敏感信息就有可能被攻击者获取到。</p>
 </div>
 <div class="section" id="uxss">
-<h2>4.7. uXSS<a class="headerlink" href="#uxss" title="Permalink to this headline">¶</a></h2>
+<h2>5.7. uXSS<a class="headerlink" href="#uxss" title="Permalink to this headline">¶</a></h2>
 <p>通用跨站脚本(Universal Cross-Site Scripting, UXSS)是一种利用浏览器或者浏览器扩展漏洞来制造产生XSS的条件并执行代码的一种攻击类型。和普通XSS的重要区别是，uXSS可以读取所有会话的Cookie信息。</p>
 </div>
 <div class="section" id="xss-auditor-bypass">
-<h2>4.8. XSS Auditor Bypass<a class="headerlink" href="#xss-auditor-bypass" title="Permalink to this headline">¶</a></h2>
+<h2>5.8. XSS Auditor Bypass<a class="headerlink" href="#xss-auditor-bypass" title="Permalink to this headline">¶</a></h2>
 <p>部分浏览器提供了XSS Auditor的功能，但是为了不影响网站的正常使用，往往使用黑名单的方式来实现，故可能存在Bypass。</p>
 </div>
 <div class="section" id="xss-api">
-<h2>4.9. 特权域 XSS + 特权域 API<a class="headerlink" href="#xss-api" title="Permalink to this headline">¶</a></h2>
+<h2>5.9. 特权域 XSS + 特权域 API<a class="headerlink" href="#xss-api" title="Permalink to this headline">¶</a></h2>
 <p>比如搜狗浏览器浏览网页可下载任意文件到任意位置，重启之后，电脑可能被完全控制。百度浏览器可静默安装插件，且存在目录穿越漏洞。解压缩到启动目录，重启之后，电脑被完全控制。</p>
 </div>
 </div>
@@ -220,10 +221,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="fuzz.html" class="btn btn-neutral float-right" title="5. Fuzz方法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fuzz.html" class="btn btn-neutral float-right" title="6. Fuzz方法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mitigation.html" class="btn btn-neutral float-left" title="3. 浏览器防护措施" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mitigation.html" class="btn btn-neutral float-left" title="4. 浏览器防护措施" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -232,7 +233,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle
+        &copy; Copyright 2017-2020, lyle
 
     </p>
   </div>

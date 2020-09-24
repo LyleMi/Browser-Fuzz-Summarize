@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.3. DOM &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.4. JavaScript 引擎" href="js.html" />
+    <link rel="prev" title="1.2. HTML" href="html.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 浏览器模糊测试综述
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">1. 基础知识</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kernel.html">1.1. 浏览器简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="html.html">1.2. HTML</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.3. DOM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.3.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.3.2. DOM标准</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="js.html">1.4. JavaScript 引擎</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render.html">1.5. 渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webidl.html">1.6. WebIDL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wasm.html">1.7. WebAssembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">1.8. 浏览器安全</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vultype.html">1.9. 浏览器漏洞类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mitigation.html">1.10. 浏览器防护措施</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../browsers/index.html">2. 浏览器与引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">4. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">5. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref/index.html">6. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">浏览器模糊测试综述</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">1. 基础知识</a> &raquo;</li>
+        
+      <li>1.3. DOM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/intro/dom.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dom">
+<h1>1.3. DOM<a class="headerlink" href="#dom" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.3.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>DOM是文档对象模型(Document Object Model)的缩写，标准由 W3C 组织指定。DOM树是把 HTML 文档呈现为带有元素、属性和文本的树结构。</p>
+</div>
+<div class="section" id="id2">
+<h2>1.3.2. DOM标准<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>DOM标准也在不断在演进，到目前有三个级别。</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>DOM Level 1</dt><dd><ul>
+<li><p>Core: 可表示任何结构化文档的基础性底层接口集合</p></li>
+<li><p>HTML: 基于Core接口，提供更适合的HTML的高层接口</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DOM Level 2</dt><dd><ul>
+<li><p>Core: 扩展Level 1 Core</p></li>
+<li><p>Views: 程序或脚本动态访问和更新文档表示的内容</p></li>
+<li><p>Events: 程序和脚本可使用的通用事件系统</p></li>
+<li><p>Styles: 程序或脚本动态访问和更新样式数据的内容</p></li>
+<li><p>Traversal and Range: 程序或脚本动态遍历或标识文档中的一段内容</p></li>
+<li><p>HTML: 程序或脚本动态访问和更新HTML文档的结构和内容</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DOM Level 3</dt><dd><ul>
+<li><p>Core: 扩展Level 1 和 2 的 Core</p></li>
+<li><p>Load and Save：程序或脚本动态将XML文档加载到DOM文档中，将DOM序列化为XML</p></li>
+<li><p>Validation： 程序或脚本在保证文档合法的基础上动态更新文档的内容</p></li>
+<li><p>Events： 扩展Level 2 Events，主要增加键盘事件</p></li>
+<li><p>Xpath: 使用Xpath访问DOM树</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="js.html" class="btn btn-neutral float-right" title="1.4. JavaScript 引擎" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="html.html" class="btn btn-neutral float-left" title="1.2. HTML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2020, lyle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

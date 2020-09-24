@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Fuzz方法 &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>4. Fuzz方法 &mdash; 浏览器模糊测试综述 1.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Fuzzers" href="fuzzers/index.html" />
-    <link rel="prev" title="4. 浏览器漏洞类型" href="vultype.html" /> 
+    <link rel="next" title="5. Fuzzers" href="fuzzers/index.html" />
+    <link rel="prev" title="3.11. Fuzzil: Coverage Guided Fuzzing for JavaScript Engines" href="papers/fuzzil.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> browser_fuzz_summarize
+            <a href="index.html" class="icon icon-home"> 浏览器模糊测试综述
           
 
           
@@ -84,36 +84,35 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro/index.html">1. 基础知识</a></li>
-<li class="toctree-l1"><a class="reference internal" href="papers/index.html">2. 相关论文</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mitigation.html">3. 浏览器防护措施</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vultype.html">4. 浏览器漏洞类型</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Fuzz方法</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">5.1. 简介</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">5.2. 白盒Fuzz</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">5.2.1. 简介</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">5.2.2. 符号执行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="browsers/index.html">2. 浏览器与引擎</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Fuzz方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.2. 白盒Fuzz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.2.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.2. 符号执行</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">5.3. 黑盒Fuzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">5.4. 灰盒Fuzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">5.5. 生成策略</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mutation-based-fuzz">5.5.1. Mutation-Based Fuzz</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#genertion-based-fuzz">5.5.2. Genertion-Based Fuzz</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hybrid-fuzz">5.5.3. Hybrid Fuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.3. 黑盒Fuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">4.4. 灰盒Fuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">4.5. 生成策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mutation-based-fuzz">4.5.1. Mutation-Based Fuzz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#genertion-based-fuzz">4.5.2. Genertion-Based Fuzz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hybrid-fuzz">4.5.3. Hybrid Fuzz</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">5.6. 导向策略</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">5.6.1. 覆盖率导向</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#patch-based">5.6.2. Patch Based</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">4.6. 导向策略</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.6.1. 覆盖率导向</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patch-based">4.6.2. Patch Based</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fuzzers/index.html">6. Fuzzers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ref.html">7. 参考资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzers/index.html">5. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref/index.html">6. 参考资料</a></li>
 </ul>
 
             
@@ -128,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">browser_fuzz_summarize</a>
+          <a href="index.html">浏览器模糊测试综述</a>
         
       </nav>
 
@@ -159,7 +158,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Fuzz方法</li>
+      <li>4. Fuzz方法</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,60 +178,60 @@
            <div itemprop="articleBody">
             
   <div class="section" id="fuzz">
-<h1>5. Fuzz方法<a class="headerlink" href="#fuzz" title="Permalink to this headline">¶</a></h1>
+<h1>4. Fuzz方法<a class="headerlink" href="#fuzz" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>5.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>4.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Fuzz又称模糊测试，是一种侧重于发现软件安全漏洞的方法。典型的Fuzz测试过程是通过自动的或半自动的方法，反复驱动目标软件运行，并为其提供特别构造的输入数据，同时监控软件运行的异常，进而根据异常结果及输入数据查找软件的安全漏洞。谷歌、微软、思科等公司都使用模糊测试作为软件安全开发流程的一部分。</p>
 </div>
 <div class="section" id="id2">
-<h2>5.2. 白盒Fuzz<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>4.2. 白盒Fuzz<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id3">
-<h3>5.2.1. 简介<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.1. 简介<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>白盒Fuzz在测试之前通常会先对应用进行分析，获取一定的信息来辅助其创建的输入能在应用程序中发现崩溃。</p>
 <p>其通常遇到的问题是一个应用程序一般有有许多分支，然后形成许多可能的执行流。不过如果有了很大的测试空间，就有可能创建几乎无限的输入来遍历所有的执行流。一般白盒Fuzz会试图创造在更少的输入的同时来尽量覆盖更多的路径。目前也有一些研究取得了成果，比如CRAX[1-2]就用符号执行的方式完成了一个白盒浏览器漏洞Fuzz工具。</p>
 <p>但是由于执行流程过多和复杂的约束，白盒Fuzz在应用程序中可能并不精确。 此外，白盒Fuzz分析应用程序需要比较多的时间，所以浏览器Fuzz一般仍以黑盒Fuzz为主。</p>
 </div>
 <div class="section" id="id4">
-<h3>5.2.2. 符号执行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.2. 符号执行<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>符号执行是白盒Fuzz的一个常用技术。其关键思想就是，把输入变为符号值，那么程序计算的输出值就是一个符号输入值的函数。这个符号化的过程在文章[1-9]中已有简要阐述，简而言之，就是一个程序执行的路径通常是true和false条件的序列，这些条件是在分支语句处产生的。</p>
 <p>符号执行要解决的问题主要是路径选择、约束求解、内存建模、处理并发这几个方面。</p>
 </div>
 </div>
 <div class="section" id="id5">
-<h2>5.3. 黑盒Fuzz<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. 黑盒Fuzz<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <p>黑盒Fuzz是一个有效和找到漏洞的简单方法，和白盒不同的是，黑盒Fuzz不关心程序执行的状态，认为程序是一个黑盒。其直接产生输入然后尝试找到结果。黑盒Fuzz也常被称为是数据驱动的Fuzz，大部分传统Fuzzer都是黑盒的。</p>
 </div>
 <div class="section" id="id6">
-<h2>5.4. 灰盒Fuzz<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h2>4.4. 灰盒Fuzz<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <p>在白盒和黑盒之后，一些研究者提出了灰盒Fuzz，结合黑盒和白盒两种方式进行Fuzz。使用黑盒Fuzz进行执行，也一定程度上使用轻量的白盒方式为黑盒提供反馈。比单纯的白盒Fuzz更轻量级，比黑盒Fuzz更有效率。</p>
 </div>
 <div class="section" id="id7">
-<h2>5.5. 生成策略<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h2>4.5. 生成策略<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mutation-based-fuzz">
-<h3>5.5.1. Mutation-Based Fuzz<a class="headerlink" href="#mutation-based-fuzz" title="Permalink to this headline">¶</a></h3>
+<h3>4.5.1. Mutation-Based Fuzz<a class="headerlink" href="#mutation-based-fuzz" title="Permalink to this headline">¶</a></h3>
 <p>在Mutation-Based Fuzz中，一般会提供一个到多个有效的样本，基于变异Fuzz方式对这些样本进行变异。常用的方式有字节级跳变、块级别的替换、删除、增加、重复、基于字典的变异等。</p>
 <p>对浏览器的模糊测试而言，为了达到更好的效果，目前的变异方式有基于源代码的变异、基于AST的变异、基于字节码的变异等。</p>
 <p>相对来说，这种Fuzz方式比较好实现，而且几乎不需要任何的先验知识，只要有一个或几个构造好的样本即可。但是相对来说，这种Fuzz方式也更依赖于给定的样本，如果样本触发的代码覆盖率不高，那么这种方式的覆盖率一般也不会高。</p>
 </div>
 <div class="section" id="genertion-based-fuzz">
-<h3>5.5.2. Genertion-Based Fuzz<a class="headerlink" href="#genertion-based-fuzz" title="Permalink to this headline">¶</a></h3>
+<h3>4.5.2. Genertion-Based Fuzz<a class="headerlink" href="#genertion-based-fuzz" title="Permalink to this headline">¶</a></h3>
 <p>Genertion-Based Fuzz通常使用的方法有基于随机字符的生成、基于语法结构的生成等。相对Mutation-Based Fuzz，直接生成样本的方式覆盖率会更高。但是相对的，这种方式也需要更多的种子样本，对样本的依赖性也更强。</p>
 </div>
 <div class="section" id="hybrid-fuzz">
-<h3>5.5.3. Hybrid Fuzz<a class="headerlink" href="#hybrid-fuzz" title="Permalink to this headline">¶</a></h3>
+<h3>4.5.3. Hybrid Fuzz<a class="headerlink" href="#hybrid-fuzz" title="Permalink to this headline">¶</a></h3>
 <p>考虑到Genertion-Based和Mutation-Based的优缺点，那么另一种方式就是结合两种模式共同进行Fuzz，生成随机样本之后再进行相应的变换，以获得更好的Fuzz效率。</p>
 </div>
 </div>
 <div class="section" id="id8">
-<h2>5.6. 导向策略<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<h2>4.6. 导向策略<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id9">
-<h3>5.6.1. 覆盖率导向<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<h3>4.6.1. 覆盖率导向<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>在生成或变异的过程中，为了能更有效的Fuzz，通常会使用导向性的策略，比如基于覆盖率的导向性策略等。</p>
 <p>导向性Fuzz最开始由AFL提出，其对样本执行后的覆盖率进行统计，找到变异后对覆盖率影响较大的字节，更多的对其进行测试，来实现更高效的变异。</p>
 <p>而后逐渐引入了基于机器学习的方式，比如基于随机下降算法的覆盖率导向方式、基于进化算法的覆盖率导向方式等来实现更高效的导向。</p>
 </div>
 <div class="section" id="patch-based">
-<h3>5.6.2. Patch Based<a class="headerlink" href="#patch-based" title="Permalink to this headline">¶</a></h3>
+<h3>4.6.2. Patch Based<a class="headerlink" href="#patch-based" title="Permalink to this headline">¶</a></h3>
 <p>除了覆盖率导向，也有基于补丁分析的模糊测试方式。</p>
 </div>
 </div>
@@ -246,10 +245,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="fuzzers/index.html" class="btn btn-neutral float-right" title="6. Fuzzers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="fuzzers/index.html" class="btn btn-neutral float-right" title="5. Fuzzers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="vultype.html" class="btn btn-neutral float-left" title="4. 浏览器漏洞类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="papers/fuzzil.html" class="btn btn-neutral float-left" title="3.11. Fuzzil: Coverage Guided Fuzzing for JavaScript Engines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -258,7 +257,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle
+        &copy; Copyright 2017-2020, lyle
 
     </p>
   </div>

@@ -1,0 +1,49 @@
+V8
+========================================
+
+简介
+----------------------------------------
+V8是一个JavaScript引擎的实现，使用C++开发。在运行JavaScript之前，V8将其编译成原生机器码，并且使用了内联缓存（inline caching）等方法来提高性能。
+
+代码结构
+----------------------------------------
+- include // v8接口
+- src // v8内部实现
+    - arm // arm后端，将抽象语法树转换为arm指令
+    - ia32 // ia32后端，将抽象语法树转换为ia32指令
+    - x86 // x86后端，将抽象语法树转换为x86指令
+    - ast // 抽象语法树的实现
+    - d8.cc // v8的调试程序
+    - heap // 堆实现
+    - extension // v8的扩展机制
+- benchmark // 性能测试用例
+- build // 编译相关脚本
+
+TurboFan
+----------------------------------------
+TurboFan是一个包含优化过程的编译器。
+
+Ignition
+----------------------------------------
+Ignition 是一个解释器。
+
+垃圾回收
+----------------------------------------
+V8的垃圾回收机制分为新生代和老生代。
+
+新生代主要使用Scavenge进行管理，主要实现是Cheney算法，将内存平均分为两块，使用空间叫From，闲置空间叫To，新对象都先分配到From空间中，在空间快要占满时将存活对象复制到To空间中，然后清空From的内存空间，此时，调换From空间和To空间，继续进行内存分配，当满足那两个条件时对象会从新生代晋升到老生代。
+
+老生代主要采用Mark-Sweep和Mark-Compact算法，一个是标记清除，一个是标记整理。两者不同的地方是，Mark-Sweep在垃圾回收后会产生碎片内存，而Mark-Compact在清除前会进行一步整理，将存活对象向一侧移动，随后清空边界的另一侧内存，这样空闲的内存都是连续的，但是带来的问题就是速度会慢一些。在V8中，老生代是Mark-Sweep和Mark-Compact两者共同进行管理的。
+
+编译
+----------------------------------------
+::
+
+    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+    export PATH="$PATH:/path/to/depot_tools"
+    mkdir ~/v8
+    cd ~/v8
+    fetch v8
+    cd v8
+    ./build/install-build-deps.sh
+    tools/dev/gm.py x64.release

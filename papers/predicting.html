@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.7. predicting vulnerable software components &mdash; browser_fuzz_summarize 1.0 documentation</title>
+  <title>3.8. predicting vulnerable software components &mdash; 浏览器模糊测试综述 1.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2.8. Scheduled DOM Fuzzing" href="scheduled.html" />
-    <link rel="prev" title="2.6. Not all bytes are equal Neural byte sieve for fuzzing" href="notallbytes.html" /> 
+    <link rel="next" title="3.9. Scheduled DOM Fuzzing" href="scheduled.html" />
+    <link rel="prev" title="3.7. Not all bytes are equal Neural byte sieve for fuzzing" href="notallbytes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> browser_fuzz_summarize
+            <a href="../index.html" class="icon icon-home"> 浏览器模糊测试综述
           
 
           
@@ -84,26 +84,28 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 相关论文</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="blonefuzz.html">2.1. one fuzzing template revealed over 100 IE UAF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="domlevel.html">2.2. DOM Level Fuzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fileja.html">2.3. Fileja</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gramfuzz.html">2.4. GramFuzz Fuzzing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mongo.html">2.5. MongoDB’s JavaScript Fuzzer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notallbytes.html">2.6. Not all bytes are equal  Neural byte sieve for fuzzing</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.7. predicting vulnerable software components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scheduled.html">2.8. Scheduled DOM Fuzzing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="skyfire.html">2.9. Skyfire Data-Driven Seed Generation for Fuzzing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../browsers/index.html">2. 浏览器与引擎</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. 相关论文</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blonefuzz.html">3.1. one fuzzing template revealed over 100 IE UAF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="langfuzz.html">3.2. Fuzzing with Code Fragments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domlevel.html">3.3. DOM Level Fuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fileja.html">3.4. Fileja</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gramfuzz.html">3.5. GramFuzz Fuzzing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongo.html">3.6. MongoDB’s JavaScript Fuzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notallbytes.html">3.7. Not all bytes are equal  Neural byte sieve for fuzzing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.8. predicting vulnerable software components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scheduled.html">3.9. Scheduled DOM Fuzzing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyfire.html">3.10. Skyfire Data-Driven Seed Generation for Fuzzing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fuzzil.html">3.11. Fuzzil: Coverage Guided Fuzzing for JavaScript Engines</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../mitigation.html">3. 浏览器防护措施</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vultype.html">4. 浏览器漏洞类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">5. Fuzz方法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">6. Fuzzers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ref.html">7. 参考资料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mitigation.html">4. 浏览器防护措施</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vultype.html">5. 浏览器漏洞类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">6. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">7. Fuzzers</a></li>
 </ul>
 
             
@@ -118,7 +120,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">browser_fuzz_summarize</a>
+          <a href="../index.html">浏览器模糊测试综述</a>
         
       </nav>
 
@@ -149,9 +151,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">2. 相关论文</a> &raquo;</li>
+          <li><a href="index.html">3. 相关论文</a> &raquo;</li>
         
-      <li>2.7. predicting vulnerable software components</li>
+      <li>3.8. predicting vulnerable software components</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -171,7 +173,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="predicting-vulnerable-software-components">
-<h1>2.7. predicting vulnerable software components<a class="headerlink" href="#predicting-vulnerable-software-components" title="Permalink to this headline">¶</a></h1>
+<h1>3.8. predicting vulnerable software components<a class="headerlink" href="#predicting-vulnerable-software-components" title="Permalink to this headline">¶</a></h1>
 <p>这篇文章的主要贡献在于给出了一个预测在大型软件中，某个模块漏洞出现概率的方法。可以通过该方法预测更容易出现漏洞的模块，从而有针对性的进行审计。
 该文章使用的主要方法为从https://bugzilla.mozilla.org中获取了firefox历年来的漏洞，使用机器学习的方法对其进行聚类。</p>
 <p>个人觉得这个思路是可以借鉴的，如果白盒符号执行的时候路径过多，可以使用该方式进行启发式的路径选择，从而更高效的测试。</p>
@@ -185,10 +187,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scheduled.html" class="btn btn-neutral float-right" title="2.8. Scheduled DOM Fuzzing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scheduled.html" class="btn btn-neutral float-right" title="3.9. Scheduled DOM Fuzzing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="notallbytes.html" class="btn btn-neutral float-left" title="2.6. Not all bytes are equal Neural byte sieve for fuzzing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="notallbytes.html" class="btn btn-neutral float-left" title="3.7. Not all bytes are equal Neural byte sieve for fuzzing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -197,7 +199,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, lyle
+        &copy; Copyright 2017-2020, lyle
 
     </p>
   </div>

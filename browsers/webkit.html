@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.3. Webkit &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Edge" href="edge.html" />
+    <link rel="prev" title="2.2. Firefox" href="firefox.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 浏览器模糊测试综述
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 浏览器与引擎</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chrome.html">2.1. Chrome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firefox.html">2.2. Firefox</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.3. Webkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.3.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#javascript-core">2.3.2. JavaScript Core</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.3.3. 编译</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.3.4. 参考链接</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="edge.html">2.4. Edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ie.html">2.5. IE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="v8.html">2.6. V8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chakra.html">2.7. ChakraCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsc.html">2.8. JavaScriptCore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">4. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">5. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref/index.html">6. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">浏览器模糊测试综述</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 浏览器与引擎</a> &raquo;</li>
+        
+      <li>2.3. Webkit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/browsers/webkit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="webkit">
+<h1>2.3. Webkit<a class="headerlink" href="#webkit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.3.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Webkit主要由WebCore和JavaScript Core组成，除此之外，WebKit Embedding API是负责浏览器UI与WebKit进行交互的部分，而WebKit Ports则是让Webkit更加方便的移植到各个操作系统、平台上，提供的一些调用Native Library的接口。</p>
+</div>
+<div class="section" id="javascript-core">
+<h2>2.3.2. JavaScript Core<a class="headerlink" href="#javascript-core" title="Permalink to this headline">¶</a></h2>
+<p>JavaScript Core的优化执行分为四个部分，LLInt、Baseline、DFG、FTL。
+LLInt是最开始的解释执行部分，Baseline是暂时的JIT，DFG阶段开始做一定的优化，FTL阶段做了充分的优化。</p>
+</div>
+<div class="section" id="id2">
+<h2>2.3.3. 编译<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">update</span>
+<span class="n">apt</span> <span class="n">install</span> <span class="n">flatpak</span> <span class="n">libseccomp</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">projectatomic</span><span class="o">/</span><span class="n">bubblewrap</span>
+<span class="o">./</span><span class="n">autogen</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">configure</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">insatll</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">depth</span><span class="o">=</span><span class="mi">1</span> <span class="n">git</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">webkit</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">WebKit</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">WebKit</span>
+<span class="n">echo</span> <span class="n">Y</span> <span class="o">|</span> <span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">gtk</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">dependencies</span>
+<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">update</span><span class="o">-</span><span class="n">webkitgtk</span><span class="o">-</span><span class="n">libs</span>
+<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">webkit</span> <span class="o">--</span><span class="n">release</span> <span class="o">--</span><span class="n">gtk</span> <span class="o">--</span><span class="n">cmakeargs</span><span class="o">=-</span><span class="n">DCMAKE_CXX_FLAGS</span><span class="o">=</span><span class="s2">&quot;-fsanitize=address -fno-omit-frame-pointer -g -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++&quot;</span>
+<span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">alexlarsson</span><span class="o">/</span><span class="n">flatpak</span>
+<span class="o">./</span><span class="n">Tools</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">run</span><span class="o">-</span><span class="n">minibrowser</span> <span class="o">--</span><span class="n">gtk</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.3.4. 参考链接<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://mp.weixin.qq.com/s?__biz=MzI0ODA2ODU2NQ==&amp;mid=2651130703&amp;idx=1&amp;sn=3a1aa8a892a1fd1e03a0fa45f25b05ef">WEBKIT渲染不可不知的这四棵树</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="edge.html" class="btn btn-neutral float-right" title="2.4. Edge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="firefox.html" class="btn btn-neutral float-left" title="2.2. Firefox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2020, lyle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

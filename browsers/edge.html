@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.4. Edge &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.5. V8" href="v8.html" />
+    <link rel="prev" title="2.3. Webkit" href="webkit.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 浏览器模糊测试综述
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">内容索引:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. 浏览器与引擎</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chrome.html">2.1. Chrome</a></li>
+<li class="toctree-l2"><a class="reference internal" href="firefox.html">2.2. Firefox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webkit.html">2.3. Webkit</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Edge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.4.1. 进程架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.4.2. 完整性级别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appcontainer">2.4.3. AppContainer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="v8.html">2.5. V8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chakra.html">2.6. ChakraCore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsc.html">2.7. JavaScriptCore</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mitigation.html">4. 浏览器防护措施</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vultype.html">5. 浏览器漏洞类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">6. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">7. Fuzzers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ref/index.html">8. 参考资料</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">浏览器模糊测试综述</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. 浏览器与引擎</a> &raquo;</li>
+        
+      <li>2.4. Edge</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/browsers/edge.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="edge">
+<h1>2.4. Edge<a class="headerlink" href="#edge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2.4.1. 进程架构<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>在较早的版本，Edge由 <code class="docutils literal notranslate"><span class="pre">MicrosoftEdge.exe</span></code> <code class="docutils literal notranslate"><span class="pre">MicrosoftEdgeCP.exe</span></code> 两个进程组成。而后Edge使用UWP架构，之后其进程主要由 <code class="docutils literal notranslate"><span class="pre">RuntimeBroker.exe</span></code> 和其他进程组成，其中 <code class="docutils literal notranslate"><span class="pre">RuntimeBroker.exe</span></code> 为中等完整性级别，其他进程都在 <code class="docutils literal notranslate"><span class="pre">AppContainer</span></code> 中以低完整性级别运行。</p>
+<p>当前版本的Edge运行的进程如下：</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>MicrosoftEdge.exe</dt><dd><ul>
+<li><p>mediumintegrity</p></li>
+<li><p>主进程</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe (Web)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>Web内容处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe (UI)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>新Tab的内容处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe (Extensions)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>扩展处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe(Settings)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>设置相关处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe(Flash)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>Flash处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>MicrosoftEdgeCP.exe(OOPJS)</dt><dd><ul>
+<li><p>AppContainer</p></li>
+<li><p>JIT编译处理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>browser_broker.exe</dt><dd><ul>
+<li><p>mediumintegrity</p></li>
+<li><p>Broker进程</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RuntimeBroker.exe</dt><dd><ul>
+<li><p>mediumintegrity</p></li>
+<li><p>权限管理</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2.4.2. 完整性级别<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>高等完整性级别是管理员权限</p></li>
+<li><p>中等完整性级别是普通用户运行进程的权限</p></li>
+<li><dl class="simple">
+<dt>低完整性级别有以下的限制</dt><dd><ul>
+<li><p>大多数的Windows消息和进程Hook都被UIPI(User Interface Privilege Isolation)限制</p></li>
+<li><p>开进程和CreateRemoteThread被mandatory标签禁止</p></li>
+<li><p>不允许以写权限打开共享内存</p></li>
+<li><p>使用比其完整性级别高的进程创建的对象</p></li>
+<li><p>绑定到运行中的Component Object Model服务</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>低完整性级别可以操作</dt><dd><ul>
+<li><p>剪贴板</p></li>
+<li><p>Remote Procedure Calls (RPC)</p></li>
+<li><p>Sockets</p></li>
+<li><p>被更高级别完整性进程设置为允许的Window Message</p></li>
+<li><p>被更高级别完整性进程设置为允许的共享内存</p></li>
+<li><p>被更高级别完整性进程设置为允许的COM</p></li>
+<li><p>被更高级别完整性进程设置为允许的命名管道</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>不信任级别几乎所有涉及到权限的操作都不被允许</p></li>
+</ul>
+</div>
+<div class="section" id="appcontainer">
+<h2>2.4.3. AppContainer<a class="headerlink" href="#appcontainer" title="Permalink to this headline">¶</a></h2>
+<p>AppContainer是Windows提出的进程隔离机制。通过将应用程序与不需要的资源和其他应用程序隔离，可以最大限度地减少恶意操纵的机会 基于最小权限授予访问权限可防止应用程序和用户访问超出其权限的资源。</p>
+<p>其提供了用户凭证、设备、文件、网络、进程等的隔离。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="v8.html" class="btn btn-neutral float-right" title="2.5. V8" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="webkit.html" class="btn btn-neutral float-left" title="2.3. Webkit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017-2020, lyle
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
