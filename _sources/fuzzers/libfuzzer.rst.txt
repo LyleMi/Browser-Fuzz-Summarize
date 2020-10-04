@@ -1,0 +1,6 @@
+libfuzzer
+========================================
+
+参考链接
+----------------------------------------
+- `libFuzzer: a library for coverage-guided fuzz testing <https://llvm.org/docs/LibFuzzer.html>`_

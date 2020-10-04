@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.7. jsfunfuzz &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  <title>4.2. 白盒Fuzz &mdash; 浏览器模糊测试综述 1.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. 参考资料" href="../ref/index.html" />
-    <link rel="prev" title="5.6. Grinder" href="grinder.html" /> 
+    <link rel="next" title="4.3. 黑盒Fuzz" href="black.html" />
+    <link rel="prev" title="4.1. 简介" href="intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,21 +89,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browsers/index.html">2. 浏览器与引擎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fuzz/index.html">4. Fuzz方法</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Fuzzers</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="implementation.html">5.1. Fuzzer实现</a></li>
-<li class="toctree-l2"><a class="reference internal" href="afl.html">5.2. AFL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="libfuzzer.html">5.3. libfuzzer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="honggfuzz.html">5.4. honggfuzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="crossfuzz.html">5.5. Cross Fuzz</a></li>
-<li class="toctree-l2"><a class="reference internal" href="grinder.html">5.6. Grinder</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.7. jsfunfuzz</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">5.7.1. 简介</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">5.7.2. 参考链接</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. Fuzz方法</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro.html">4.1. 简介</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. 白盒Fuzz</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.2.1. 简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.2.2. 符号执行</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="black.html">4.3. 黑盒Fuzz</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzers/index.html">5. Fuzzers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ref/index.html">6. 参考资料</a></li>
 </ul>
 
@@ -150,15 +146,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">5. Fuzzers</a> &raquo;</li>
+          <li><a href="index.html">4. Fuzz方法</a> &raquo;</li>
         
-      <li>5.7. jsfunfuzz</li>
+      <li>4.2. 白盒Fuzz</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/fuzzers/jsfunfuzz.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/fuzz/white.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,17 +167,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="jsfunfuzz">
-<h1>5.7. jsfunfuzz<a class="headerlink" href="#jsfunfuzz" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fuzz">
+<h1>4.2. 白盒Fuzz<a class="headerlink" href="#fuzz" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>5.7.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Jsfunfuzz使用了历史漏洞知识和硬编码规则生成测试输入，以Mozilla浏览器中的Javascript解释器为测试目标。</p>
+<h2>4.2.1. 简介<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>白盒Fuzz在测试之前通常会先对应用进行分析，获取一定的信息来辅助其创建的输入能在应用程序中发现崩溃。</p>
+<p>其通常遇到的问题是一个应用程序一般有有许多分支，然后形成许多可能的执行流。不过如果有了很大的测试空间，就有可能创建几乎无限的输入来遍历所有的执行流。一般白盒Fuzz会试图创造在更少的输入的同时来尽量覆盖更多的路径。目前也有一些研究取得了成果，比如CRAX[1-2]就用符号执行的方式完成了一个白盒浏览器漏洞Fuzz工具。</p>
+<p>但是由于执行流程过多和复杂的约束，白盒Fuzz在应用程序中可能并不精确。 此外，白盒Fuzz分析应用程序需要比较多的时间，所以浏览器Fuzz一般仍以黑盒Fuzz为主。</p>
 </div>
 <div class="section" id="id2">
-<h2>5.7.2. 参考链接<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/MozillaSecurity/funfuzz">funfuzz</a></p></li>
-</ul>
+<h2>4.2.2. 符号执行<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>符号执行是白盒Fuzz的一个常用技术。其关键思想就是，把输入变为符号值，那么程序计算的输出值就是一个符号输入值的函数。这个符号化的过程在文章[1-9]中已有简要阐述，简而言之，就是一个程序执行的路径通常是true和false条件的序列，这些条件是在分支语句处产生的。</p>
+<p>符号执行要解决的问题主要是路径选择、约束求解、内存建模、处理并发这几个方面。</p>
 </div>
 </div>
 
@@ -193,10 +190,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ref/index.html" class="btn btn-neutral float-right" title="6. 参考资料" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="black.html" class="btn btn-neutral float-right" title="4.3. 黑盒Fuzz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="grinder.html" class="btn btn-neutral float-left" title="5.6. Grinder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="4.1. 简介" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

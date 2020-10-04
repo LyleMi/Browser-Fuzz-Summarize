@@ -12,3 +12,7 @@ AFL（American Fuzzy Lop）是由安全研究员Michał Zalewski（@lcamtuf）�
 - 将队列中的文件按一定的策略进行变异
 - 如果经过变异文件更新了覆盖范围，则将其保留添加到队列中
 - 上述过程会一直循环进行，期间触发了crash的文件会被记录下来
+
+参考链接
+----------------------------------------
+- `american fuzzy lop <https://lcamtuf.coredump.cx/afl/>`_

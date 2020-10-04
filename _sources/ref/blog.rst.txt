@@ -28,3 +28,4 @@ Blog or Talks
 - `fuzzingbook <https://www.fuzzingbook.org/>`_
 - `浏览器的工作原理：新式网络浏览器幕后揭秘 <https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/>`_
 - `黄正 如何用正确姿势挖掘浏览器漏洞 <https://zhuanlan.zhihu.com/p/24846502?utm_source=zhihu&utm_medium=social>`_
+- `fuzzing <https://github.com/google/fuzzing>`_

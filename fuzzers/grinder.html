@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5.2. Grinder &mdash; 浏览器模糊测试综述 1.0 documentation</title>
+  <title>5.6. Grinder &mdash; 浏览器模糊测试综述 1.0 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.3. AFL" href="afl.html" />
-    <link rel="prev" title="5.1. Fuzzer实现" href="implementation.html" /> 
+    <link rel="next" title="5.7. jsfunfuzz" href="jsfunfuzz.html" />
+    <link rel="prev" title="5.5. Cross Fuzz" href="crossfuzz.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,30 +89,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/index.html">1. 基础知识</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../browsers/index.html">2. 浏览器与引擎</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../papers/index.html">3. 相关论文</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../fuzz.html">4. Fuzz方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzz/index.html">4. Fuzz方法</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">5. Fuzzers</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="implementation.html">5.1. Fuzzer实现</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">5.2. Grinder</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">5.2.1. 客户端配置</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#node">5.2.2. Node</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">5.2.2.1. 主要文件说明</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">5.2.2.2. 运行流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="afl.html">5.2. AFL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libfuzzer.html">5.3. libfuzzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honggfuzz.html">5.4. honggfuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crossfuzz.html">5.5. Cross Fuzz</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.6. Grinder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.6.1. 客户端配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node">5.6.2. Node</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">5.6.2.1. 主要文件说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">5.6.2.2. 运行流程</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#server">5.2.3. Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#metasm">5.2.4. metasm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fuzzer">5.2.5. Fuzzer编写</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id4">5.2.5.1. 库函数</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#simpleexample">5.2.5.2. SimpleExample</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5">5.2.5.3. 编写</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server">5.6.3. Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metasm">5.6.4. metasm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fuzzer">5.6.5. Fuzzer编写</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">5.6.5.1. 库函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simpleexample">5.6.5.2. SimpleExample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">5.6.5.3. 编写</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#nduja">5.2.6. nduja</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fileja">5.2.7. fileja</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nduja">5.6.6. nduja</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fileja">5.6.7. fileja</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="afl.html">5.3. AFL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="jsfunfuzz.html">5.4. jsfunfuzz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsfunfuzz.html">5.7. jsfunfuzz</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ref/index.html">6. 参考资料</a></li>
@@ -163,7 +166,7 @@
         
           <li><a href="index.html">5. Fuzzers</a> &raquo;</li>
         
-      <li>5.2. Grinder</li>
+      <li>5.6. Grinder</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,9 +186,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="grinder">
-<h1>5.2. Grinder<a class="headerlink" href="#grinder" title="Permalink to this headline">¶</a></h1>
+<h1>5.6. Grinder<a class="headerlink" href="#grinder" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>5.2.1. 客户端配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.1. 客户端配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>32位系统</dt><dd><ul>
@@ -209,9 +212,9 @@
 </ul>
 </div>
 <div class="section" id="node">
-<h2>5.2.2. Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.2. Node<a class="headerlink" href="#node" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>5.2.2.1. 主要文件说明<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.2.1. 主要文件说明<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p>browser: hook相应浏览器的parseFloat</p>
 <blockquote>
@@ -271,7 +274,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h3>5.2.2.2. 运行流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.2.2. 运行流程<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>入口文件为grinder.rb</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -301,7 +304,7 @@
 </div>
 </div>
 <div class="section" id="server">
-<h2>5.2.3. Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.3. Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h2>
 <p>服务器端采用典型的PHP+MySQL的结构，设计思路是比较老的非MVC结构，总体功能比较单一，主要用来查看fuzzer节点的情况</p>
 <p>部分文件功能说明如下</p>
 <ul class="simple">
@@ -313,13 +316,13 @@
 </ul>
 </div>
 <div class="section" id="metasm">
-<h2>5.2.4. metasm<a class="headerlink" href="#metasm" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.4. metasm<a class="headerlink" href="#metasm" title="Permalink to this headline">¶</a></h2>
 <p>Metasm是一个ruby实现的汇编器、反编汇器以及编译器。</p>
 </div>
 <div class="section" id="fuzzer">
-<h2>5.2.5. Fuzzer编写<a class="headerlink" href="#fuzzer" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.5. Fuzzer编写<a class="headerlink" href="#fuzzer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id4">
-<h3>5.2.5.1. 库函数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.5.1. 库函数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>grinder提供的库函数主要有下面这些</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rand(</span> <span class="pre">x</span> <span class="pre">)</span></code> Pick a random number between 0 and X</p></li>
@@ -330,7 +333,7 @@
 </ul>
 </div>
 <div class="section" id="simpleexample">
-<h3>5.2.5.2. SimpleExample<a class="headerlink" href="#simpleexample" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.5.2. SimpleExample<a class="headerlink" href="#simpleexample" title="Permalink to this headline">¶</a></h3>
 <p>SimpleExample.html 是grinder给出来的示例代码，展示了Fuzzer所需要的基本元素
 编写logger必须的代码如下</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">new</span> <span class="n">LOGGER</span><span class="p">(</span> <span class="s2">&quot;SimpleExample&quot;</span> <span class="p">);</span>
@@ -362,13 +365,13 @@ document.body.appendChild( id_0 );
 </div>
 </div>
 <div class="section" id="id5">
-<h3>5.2.5.3. 编写<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3>5.6.5.3. 编写<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>在简单看过相关的库函数和一个简单的样本之后，编写fuzzer的基础知识就已经足够了。
 其必要的逻辑是在生成/修改等操作前后都调用log记录下足够的信息以便调试crash。另外就主要是设计好fuzzer种子生成的算法以及随机元素变换的算法以获取更多的crash。</p>
 </div>
 </div>
 <div class="section" id="nduja">
-<h2>5.2.6. nduja<a class="headerlink" href="#nduja" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.6. nduja<a class="headerlink" href="#nduja" title="Permalink to this headline">¶</a></h2>
 <p>SimpleExample.html更多的只是一个简单的样本，一个高效的fuzzer编写需要更精巧的思路，所以选择nduja进一步进行分析</p>
 <p>其简单的函数调用树如下</p>
 <ul class="simple">
@@ -504,7 +507,7 @@ document.body.appendChild( id_0 );
 <p>可以看到，正和之前文章讲述的原因，nduja的fuzz逻辑是比较复杂的，而其fuzz的主要操作是moveIterator，moveTreeWalker。即利用节点间的联系来变换，以期找出漏洞。</p>
 </div>
 <div class="section" id="fileja">
-<h2>5.2.7. fileja<a class="headerlink" href="#fileja" title="Permalink to this headline">¶</a></h2>
+<h2>5.6.7. fileja<a class="headerlink" href="#fileja" title="Permalink to this headline">¶</a></h2>
 <p>在之前提到了fileja也是基于grinder编写的fuzzer，相对于nduja，在grinder的基础上做了更多的扩展，其流程更复杂</p>
 <p>fileja除了自己编写了testcase之外，也使用了来自于W3C的testcase</p>
 <p>fileja的在函数执行之前，定义了比较多的全局变量和常量，对比较多的html元素进行了fuzz，这样能获得的crash也会比较多，定义的主要的值有下面这些</p>
@@ -624,10 +627,10 @@ document.body.appendChild( id_0 );
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="afl.html" class="btn btn-neutral float-right" title="5.3. AFL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="jsfunfuzz.html" class="btn btn-neutral float-right" title="5.7. jsfunfuzz" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="implementation.html" class="btn btn-neutral float-left" title="5.1. Fuzzer实现" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="crossfuzz.html" class="btn btn-neutral float-left" title="5.5. Cross Fuzz" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

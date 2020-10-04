@@ -9,6 +9,6 @@
    intro/index
    browsers/index
    papers/index
-   fuzz
+   fuzz/index
    fuzzers/index
    ref/index
